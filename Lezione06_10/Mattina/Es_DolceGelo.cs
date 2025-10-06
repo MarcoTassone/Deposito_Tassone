@@ -8,7 +8,10 @@ namespace Lezione06_10.Mattina
 
     string[] gusti = { "Cioccolato", "Fragola", "Menta", "Pistacchio", "Limone" };
     double[] prezzi = { 1.50, 1.30, 1.40, 1.60, 1.70 };
-    int indice;
+
+    const double SOGLIA_SCONTO = 10;
+    const double PERCENTUALE_SCONTO = 0.20;
+
 
     bool continua = true;
 
@@ -22,7 +25,7 @@ namespace Lezione06_10.Mattina
 
         Console.WriteLine($"Inserisci scegli un gusto: ");
 
-        indice = int.Parse(Console.ReadLine());
+        int indice = int.Parse(Console.ReadLine());
 
         Console.WriteLine($"Inserire la quantità di palline: ");
 
@@ -42,7 +45,7 @@ namespace Lezione06_10.Mattina
     {
       for (int i = 0; i < gusti.Length; i++)
       {
-        Console.WriteLine($"{i + 1} - {gusti[i]} - {prezzi[i].ToString()} euro");
+        Console.WriteLine($"{i + 1} - {gusti[i]} - {prezzi[i].ToString().ToLower()} euro");
       }
     }
 
