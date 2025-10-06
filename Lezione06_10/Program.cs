@@ -62,11 +62,11 @@ class Program
     // MetodoEquals b = new MetodoEquals{X = 2, Y = 2};
     // Console.WriteLine(a.Equals(b));
 
-    MetodoHashCode prodotto1 = new MetodoHashCode { Nome = "Penna", Prezzo = 1.50 };
-    MetodoHashCode prodotto2 = new MetodoHashCode { Nome = "Penna", Prezzo = 1.50 };
+    // MetodoHashCode prodotto1 = new MetodoHashCode { Nome = "Penna", Prezzo = 1.50 };
+    // MetodoHashCode prodotto2 = new MetodoHashCode { Nome = "Penna", Prezzo = 1.50 };
 
-    Console.WriteLine(prodotto1.GetHashCode());
-    Console.WriteLine(prodotto2.GetHashCode());
+    // Console.WriteLine(prodotto1.GetHashCode());
+    // Console.WriteLine(prodotto2.GetHashCode());
     
   }
 }
