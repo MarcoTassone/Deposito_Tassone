@@ -29,7 +29,7 @@ namespace Es_DolceGelo
 
           Console.WriteLine($"Vuoi inserire un altro gusto? (s/n)");
 
-          int risposta = int.Parse(Console.ReadLine());
+          string risposta = Console.ReadLine();
 
           if (risposta == "n")
           {
