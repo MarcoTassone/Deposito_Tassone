@@ -11,19 +11,16 @@ namespace Lezione06_10.Esempi
         public string Cognome;
         public int AnnoNascita;
 
-        public void Studente1(string nome, string cognome, int annoNascita)
+        public StudenteTreParametri(string nome, string cognome, int annoNascita)
         {
             Nome = nome;
             Cognome = cognome;
             AnnoNascita = annoNascita;
         }
         
-        public void Studente2()
+        public void Stampa()
         {
-            Nome = "Giovanni";
-            Cognome = "Rossi";
-            AnnoNascita = 2002;
-            Console.WriteLine($"Ciao sono {Nome} {Cognome} e ho {AnnoNascita} anni.");
+            Console.WriteLine($"Ciao sono {Nome} {Cognome} e sono nato nel {AnnoNascita}.");
         }
     }
 }
