@@ -5,6 +5,7 @@ using System.Net.WebSockets;
 using Lezione07_10.Mattina;
 using Lezione07_10.Pomeriggio.Ereditarietà;
 using Lezione07_10.Pomeriggio.Ereditarietà.Es_Garage;
+using Lezione07_10.Pomeriggio.Ereditarietà.Es_Scuola;
 
 public class Program
 {
@@ -64,6 +65,9 @@ public class Program
     // Console.WriteLine($"Ecco le tue modifiche: {macchina1.Motore}, {macchina1.VelocitaMacchina}, {macchina1.SospensioniMax} ");
     // Console.WriteLine($"Ecco le tue modifiche: {macchina2.Motore}, {macchina2.VelocitaMacchina}, {macchina2.SospensioniMax}");
 
+
+    /// <summary>Esercizio Film</summary>
+
     // Film film1 = new Film("Il signore degli anelli e la compagnia dell'anello", "Peter Jackson", 2001, "Fantasy");
     // Film film2 = new Film("Harry Potter e la pietra filosofale", "Chris Columbus", 2001, "Fantasy");
     // Film film3 = new Film("Scream", "Wes Craven", 1996, "Horror");
@@ -116,6 +120,8 @@ public class Program
     //   }
     // }
 
+    /// <summary>Esempi di ereditarietà</summary>
+
     // Cane cane = new Cane();
     // cane.FaiVerso();
     // cane.Scondizola();
@@ -127,61 +133,128 @@ public class Program
     // Elefante elefante = new Elefante();
     // elefante.ImpostaEta(10);
 
-    List<Veicolo> garage = new List<Veicolo>();
+    /// <summary>Esercizio Garage</summary>
+
+    // List<Veicolo> garage = new List<Veicolo>();
+    // bool continua = true;
+    // int scelta = 0;
+
+    // while (continua)
+    // {
+    //   Console.WriteLine($"Menu garage: ");
+    //   Console.WriteLine($"1. Inserisci un nuovo veicolo");
+    //   Console.WriteLine($"2. Stampa tutti i veicoli");
+    //   Console.WriteLine($"3. Esci");
+    //   scelta = int.Parse(Console.ReadLine());
+
+    //   switch (scelta)
+    //   {
+    //     case 1:
+    //       Console.WriteLine($"Inserisci il tipo di veicolo (auto/moto): ");
+    //       string tipo = Console.ReadLine();
+
+    //       Console.WriteLine($"Inserisci la marca: ");
+    //       string marca = Console.ReadLine();
+
+    //       Console.WriteLine($"Inserisci il modello: ");
+    //       string modello = Console.ReadLine();
+
+    //       if (tipo == "auto")
+    //       {
+    //         Console.WriteLine("Numero porte: ");
+    //         int porte = int.Parse(Console.ReadLine());
+    //         garage.Add(new Auto(marca, modello, porte));
+    //       }
+    //       else if (tipo == "moto")
+    //       {
+    //         Console.WriteLine($"Tipo di manubrio: ");
+    //         string tipoManubrio = Console.ReadLine();
+    //         garage.Add(new Moto(marca, modello, tipoManubrio));
+    //       }
+    //       else
+    //       {
+    //         Console.WriteLine($"Tipo non valido!");
+
+    //       }
+    //       break;
+    //     case 2:
+    //       Console.WriteLine($"Veicoli nel garage: \n");
+    //       foreach (Veicolo v in garage)
+    //       {
+    //         Console.WriteLine(v);
+    //       }
+    //       break;
+    //     case 3:
+    //       continua = false;
+    //       Console.WriteLine($"Arrivederci!");
+    //       break;
+    //     default:
+    //       Console.WriteLine($"Scelta non valida!");
+    //       break;
+    //   }
+    // }
+
+    List<Corso> corsi = new List<Corso>();
+    Corso studenti = new Corso(" ", " ", 0, new List<string>());
+
     bool continua = true;
     int scelta = 0;
 
     while (continua)
     {
-      Console.WriteLine($"Menu garage: ");
-      Console.WriteLine($"1. Inserisci un nuovo veicolo");
-      Console.WriteLine($"2. Stampa tutti i veicoli");
-      Console.WriteLine($"3. Esci");
+      Console.WriteLine($"Menu corsi: ");
+      Console.WriteLine($"1. Aggiungi un corso di Musica");
+      Console.WriteLine($"2. Aggiungi un corso di Pittura");
+      Console.WriteLine($"3. Aggiungi un corso di Danza");
+      Console.WriteLine($"4. Aggiungi uno studente a un corso");
+      Console.WriteLine($"5. Visualizza tutti i corsi");
+      Console.WriteLine($"6. Cerca corsi per nome docente");
+      Console.WriteLine($"7. Esegui un metodo speciale");
+      Console.WriteLine($"8. Esci");
       scelta = int.Parse(Console.ReadLine());
 
       switch (scelta)
       {
         case 1:
-          Console.WriteLine($"Inserisci il tipo di veicolo (auto/moto): ");
-          string tipo = Console.ReadLine();
+          Console.WriteLine($"Inserisci il nome del corso: ");
+          string? nome = Console.ReadLine();
+          Console.WriteLine($"Inserisci il nome del docente: ");
+          string? docente = Console.ReadLine();
+          Console.WriteLine($"Inserisci la durata del corso: ");
+          int durata = Convert.ToInt32(Console.ReadLine());
+          Console.WriteLine($"Inserisci lo strumento da suonare: ");
+          string? strumento = Console.ReadLine();
 
-          Console.WriteLine($"Inserisci la marca: ");
-          string marca = Console.ReadLine();
-
-          Console.WriteLine($"Inserisci il modello: ");
-          string modello = Console.ReadLine();
-
-          if (tipo == "auto")
-          {
-            Console.WriteLine("Numero porte: ");
-            int porte = int.Parse(Console.ReadLine());
-            garage.Add(new Auto(marca, modello, porte));
-          }
-          else if (tipo == "moto")
-          {
-            Console.WriteLine($"Tipo di manubrio: ");
-            string tipoManubrio = Console.ReadLine();
-            garage.Add(new Moto(marca, modello, tipoManubrio));
-          }
-          else
-          {
-            Console.WriteLine($"Tipo non valido!");
-
-          }
+          corsi.Add(new CorsoMusica(nome, docente, durata, new List<string>(), strumento));
           break;
+
         case 2:
-          Console.WriteLine($"Veicoli nel garage: \n");
-          foreach (Veicolo v in garage)
-          {
-            Console.WriteLine(v.ToString());
-          }
+          Console.WriteLine($"Inserisci il nome del corso: ");
+          string? nome2 = Console.ReadLine();
+          Console.WriteLine($"Inserisci il nome del docente: ");
+          string? docente2 = Console.ReadLine();
+          Console.WriteLine($"Inserisci la durata del corso: ");
+          int durata2 = Convert.ToInt32(Console.ReadLine());
+          Console.WriteLine($"Inserisci la tecnica da utilizzare: ");
+          string? tecnica = Console.ReadLine();
+
+          corsi.Add(new CorsoPittura(nome2, docente2, durata2, new List<string>(), tecnica));
           break;
+
         case 3:
-          continua = false;
-          Console.WriteLine($"Arrivederci!");
+          Console.WriteLine($"Inserisci il nome del corso: ");
+          string? nome3 = Console.ReadLine();
+          Console.WriteLine($"Inserisci il nome del docente: ");
+          string? docente3 = Console.ReadLine();
+          Console.WriteLine($"Inserisci la durata del corso: ");
+          int durata3 = Convert.ToInt32(Console.ReadLine());
+          Console.WriteLine($"Inserisci lo stile da utilizzare: ");
+          string? stile = Console.ReadLine();
+
+          corsi.Add(new CorsoDanza(nome3, docente3, durata3, new List<string>(), stile));
           break;
-        default:
-          Console.WriteLine($"Scelta non valida!");
+        case 4:
+          studenti.AggiungiStudente(Console.ReadLine());
           break;
       }
     }
