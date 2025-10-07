@@ -68,51 +68,43 @@ public class Program
 
     /// <summary>Esercizio Film</summary>
 
-    // Film film1 = new Film("Il signore degli anelli e la compagnia dell'anello", "Peter Jackson", 2001, "Fantasy");
-    // Film film2 = new Film("Harry Potter e la pietra filosofale", "Chris Columbus", 2001, "Fantasy");
-    // Film film3 = new Film("Scream", "Wes Craven", 1996, "Horror");
-    // Film film4 = new Film("The Shining", "Stanley Kubrick", 1980, "Horror");
-    // Film film5 = new Film("6-Headed Shark Attack", "Mark Atkins", 2018, "Horror");
-
-    // List<Film> film = new List<Film> { film1, film2, film3, film4, film5 };
+    // Film film = new Film();
     // int scelta = 0;
+    // bool continua = true;
 
     // Console.WriteLine($"Benvenuto nella libreria! Scegli un film da visualizzare: ");
-    // while (true)
+    // while (continua)
     // {
-
-    //   Console.WriteLine($"1. {film1.ToString()}");
-    //   Console.WriteLine($"2. {film2.ToString()}");
-    //   Console.WriteLine($"3. {film3.ToString()}");
-    //   Console.WriteLine($"4. {film4.ToString()}");
-    //   Console.WriteLine($"5. {film5.ToString()}");
+    //   Console.WriteLine($"1. Crea film");
+    //   Console.WriteLine($"2. Stampa film");
+    //   Console.WriteLine($"3. Cerca film");
+    //   Console.WriteLine($"4. Esci");
     //   scelta = int.Parse(Console.ReadLine());
 
     //   switch (scelta)
     //   {
     //     case 1:
-    //       film1.Stampa();
+    //       Console.WriteLine($"Inserisci il titolo del film: ");
+    //       string titolo = Console.ReadLine();
+    //       Console.WriteLine($"Inserisci il regista del film: ");
+    //       string regista = Console.ReadLine();
+    //       Console.WriteLine($"Inserisci l'anno del film: ");
+    //       int anno = int.Parse(Console.ReadLine());
+    //       Console.WriteLine($"Inserisci il genere del film: ");
+    //       string genere = Console.ReadLine();
+    //       film.aggiungiFilm(titolo, regista, anno, genere);
     //       break;
     //     case 2:
-    //       film2.Stampa();
+    //       film.Stampa();
     //       break;
     //     case 3:
-    //       film3.Stampa();
+    //       Console.WriteLine($"Inserisci il genere del film da cercare: ");
+    //       string genereCercato = Console.ReadLine();
+    //       film.cercaFilm(genereCercato);
     //       break;
     //     case 4:
-    //       film4.Stampa();
-    //       break;
-    //     case 5:
-    //       film5.Stampa();
-    //       break;
-    //     case 6:
-    //       Console.WriteLine($"Inserisci il genere del film da cercare: ");
-    //       string genere = Console.ReadLine();
-    //       film1.cercaFilm(genere);
-    //       film2.cercaFilm(genere);
-    //       film3.cercaFilm(genere);
-    //       film4.cercaFilm(genere);
-    //       film5.cercaFilm(genere);
+    //       continua = false;
+    //       Console.WriteLine($"Arrivederci!");
     //       break;
     //     default:
     //       Console.WriteLine("Scelta non valida");
@@ -152,10 +144,8 @@ public class Program
     //     case 1:
     //       Console.WriteLine($"Inserisci il tipo di veicolo (auto/moto): ");
     //       string tipo = Console.ReadLine();
-
     //       Console.WriteLine($"Inserisci la marca: ");
     //       string marca = Console.ReadLine();
-
     //       Console.WriteLine($"Inserisci il modello: ");
     //       string modello = Console.ReadLine();
 
@@ -174,7 +164,6 @@ public class Program
     //       else
     //       {
     //         Console.WriteLine($"Tipo non valido!");
-
     //       }
     //       break;
     //     case 2:
@@ -254,7 +243,8 @@ public class Program
           corsi.Add(new CorsoDanza(nome3, docente3, durata3, new List<string>(), stile));
           break;
         case 4:
-          studenti.AggiungiStudente(Console.ReadLine());
+          string nomeStudente = Console.ReadLine();
+          studenti.AggiungiStudente(nomeStudente);
           break;
       }
     }

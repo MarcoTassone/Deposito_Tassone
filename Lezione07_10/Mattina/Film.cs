@@ -13,7 +13,7 @@ namespace Lezione07_10.Mattina
         public int Anno;
         public string Genere;
 
-        public Film(string titolo, string regista, int anno, string genere)
+        public void aggiungiFilm(string titolo, string regista, int anno, string genere)
         {
             Titolo = titolo;
             Regista = regista;
