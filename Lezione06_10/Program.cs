@@ -66,7 +66,7 @@ class Program
     // MetodoHashCode prodotto2 = new MetodoHashCode { Nome = "Penna", Prezzo = 1.50 };
 
     // Console.WriteLine(prodotto1.GetHashCode());
-    // Console.WriteLine(prodotto2.GetHashCode());
+    // Console.WriteLine(prodotto2.GetHashCode()); 
     
   }
 }
