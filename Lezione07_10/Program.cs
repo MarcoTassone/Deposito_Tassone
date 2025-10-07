@@ -2,6 +2,7 @@
 // Console.WriteLine("Hello, World!");
 
 using System.Net.WebSockets;
+using System.Runtime.InteropServices;
 using Lezione07_10.Mattina;
 using Lezione07_10.Pomeriggio.Ereditarietà;
 using Lezione07_10.Pomeriggio.Ereditarietà.Es_Garage;
@@ -28,42 +29,73 @@ public class Program
     // Console.WriteLine($"hashcode 2: {libro2.GetHashCode()}");
     // Console.WriteLine($"Sono uguali?: {libro1.GetHashCode() == libro2.GetHashCode()}");
 
-    //Esercizio Macchina TUTTO SBAGLIATO
+    //Esercizio Macchina
 
-    // Utente utente = new Utente("Marco", 5);
-    // Macchina macchina = new Macchina();
-    // Macchina macchina1= new Macchina();
-    // Macchina macchina2 = new Macchina();
+    // bool continua = true;
+    // int scelta = 0;
 
-    // Console.WriteLine($"Benvenuto! Come vuoi customizzare la tua macchina?");
-    // do
+    // Console.WriteLine($"Benvenuto! Configura l'utente: ");
+
+    // for (int i = 0; i <= 3; i++)
     // {
-    //   Console.WriteLine($"Motore: ");
-    //   macchina.Motore = Console.ReadLine();
-    //   Console.WriteLine($"Velocità macchina: ");
-    //   macchina.VelocitaMacchina = Convert.ToInt32(Console.ReadLine());
-    //   Console.WriteLine($"Sospensioni massime: ");
-    //   macchina.SospensioniMax = Convert.ToInt32(Console.ReadLine());
+    //   Console.WriteLine($"Inserisci il tuo nome: ");
+    //   string nome = Console.ReadLine();
+    //   Console.WriteLine($"Inserisci i tuoi crediti iniziali (0-4): ");
+    //   int crediti = Convert.ToInt32(Console.ReadLine());
+    //   Utente utente = new Utente(nome, crediti);
+    //   Console.WriteLine($"Inserisci il motore della macchina: ");
+    //   string motore = Console.ReadLine();
+    //   Console.WriteLine($"Inserisci la velocita della macchina: ");
+    //   float velocitaMacchina = float.Parse(Console.ReadLine());
+    //   Console.WriteLine($"Inserisci il numero di sospensioni della macchina: ");
+    //   int sospensioniMax = int.Parse(Console.ReadLine());
+    //   Macchina macchina = new Macchina(motore, velocitaMacchina, sospensioniMax);
+    //   while (utente.Credito > 0)
+    //   {
+    //     Console.WriteLine($"Scegli una modifica: ");
+    //     Console.WriteLine($"1 - Cambia tipo di motore");
+    //     Console.WriteLine($"2 - Aumenta la velocita");
+    //     Console.WriteLine($"3 - Aumenta il numero di sospensioni");
+    //     Console.WriteLine($"4 - Esci");
+    //     scelta = int.Parse(Console.ReadLine());
 
-    //   Console.WriteLine($"Motore: ");
-    //   macchina1.Motore = Console.ReadLine();
-    //   Console.WriteLine($"Velocità macchina: ");
-    //   macchina1.VelocitaMacchina = Convert.ToInt32(Console.ReadLine());
-    //   Console.WriteLine($"Sospensioni massime: ");
-    //   macchina1.SospensioniMax = Convert.ToInt32(Console.ReadLine());
+    //     switch (scelta)
+    //     {
+    //       case 1:
+    //         Console.WriteLine($"Inserisci il nuovo motore: ");
+    //         string nuovoMotore = Console.ReadLine();
+    //         macchina.Motore = nuovoMotore;
+    //         macchina.NrModifiche++;
+    //         utente.Credito--;
+    //         break;
+    //       case 2:
+    //         macchina.VelocitaMacchina += 10f;
+    //         Console.WriteLine($"Velocità aumentata!");
+    //         macchina.NrModifiche++;
+    //         utente.Credito--;
+    //         break;
+    //       case 3:
+    //         macchina.SospensioniMax += 1;
+    //         Console.WriteLine($"Sospensioni aumentate!");
+    //         macchina.NrModifiche++;
+    //         utente.Credito--;
+    //         macchina.SospensioniMax = Convert.ToInt32(Console.ReadLine());
+    //         break;
+    //       case 4:
+    //         Console.WriteLine($"Arrivederci! Hai acquistato {macchina.NrModifiche} modifica!");
+    //         macchina.NrModifiche = Convert.ToInt32(Console.ReadLine());
+    //         break;
+    //       default:
+    //         continua = false;
+    //         Console.WriteLine($"Scelta non valida!");
+    //         break;
+    //     }
+    //   }
 
-    //   Console.WriteLine($"Motore: ");
-    //   macchina2.Motore = Console.ReadLine();
-    //   Console.WriteLine($"Velocità macchina: ");
-    //   macchina2.VelocitaMacchina = Convert.ToInt32(Console.ReadLine());
-    //   Console.WriteLine($"Sospensioni massime: ");
-    //   macchina2.SospensioniMax = Convert.ToInt32(Console.ReadLine());
+    //   macchina.Stampa(utente.Nome);
+    // }
 
-    // } while (utente.Credito <= 0);
 
-    // Console.WriteLine($"Ecco le tue modifiche: {macchina.Motore}, {macchina.VelocitaMacchina}, {macchina.SospensioniMax}");
-    // Console.WriteLine($"Ecco le tue modifiche: {macchina1.Motore}, {macchina1.VelocitaMacchina}, {macchina1.SospensioniMax} ");
-    // Console.WriteLine($"Ecco le tue modifiche: {macchina2.Motore}, {macchina2.VelocitaMacchina}, {macchina2.SospensioniMax}");
 
 
     /// <summary>Esercizio Film</summary>
@@ -183,70 +215,75 @@ public class Program
     //   }
     // }
 
-    List<Corso> corsi = new List<Corso>();
-    Corso studenti = new Corso(" ", " ", 0, new List<string>());
+    // List<Corso> corsi = new List<Corso>();
 
-    bool continua = true;
-    int scelta = 0;
+    // bool continua = true;
+    // int scelta = 0;
 
-    while (continua)
-    {
-      Console.WriteLine($"Menu corsi: ");
-      Console.WriteLine($"1. Aggiungi un corso di Musica");
-      Console.WriteLine($"2. Aggiungi un corso di Pittura");
-      Console.WriteLine($"3. Aggiungi un corso di Danza");
-      Console.WriteLine($"4. Aggiungi uno studente a un corso");
-      Console.WriteLine($"5. Visualizza tutti i corsi");
-      Console.WriteLine($"6. Cerca corsi per nome docente");
-      Console.WriteLine($"7. Esegui un metodo speciale");
-      Console.WriteLine($"8. Esci");
-      scelta = int.Parse(Console.ReadLine());
+    // while (continua)
+    // {
+    //   Console.WriteLine($"Menu corsi: ");
+    //   Console.WriteLine($"1. Aggiungi un corso di Musica");
+    //   Console.WriteLine($"2. Aggiungi un corso di Pittura");
+    //   Console.WriteLine($"3. Aggiungi un corso di Danza");
+    //   Console.WriteLine($"4. Aggiungi uno studente a un corso");
+    //   Console.WriteLine($"5. Visualizza tutti i corsi");
+    //   Console.WriteLine($"6. Cerca corsi per nome docente");
+    //   Console.WriteLine($"7. Esegui un metodo speciale");
+    //   Console.WriteLine($"8. Esci");
+    //   scelta = int.Parse(Console.ReadLine());
 
-      switch (scelta)
-      {
-        case 1:
-          Console.WriteLine($"Inserisci il nome del corso: ");
-          string? nome = Console.ReadLine();
-          Console.WriteLine($"Inserisci il nome del docente: ");
-          string? docente = Console.ReadLine();
-          Console.WriteLine($"Inserisci la durata del corso: ");
-          int durata = Convert.ToInt32(Console.ReadLine());
-          Console.WriteLine($"Inserisci lo strumento da suonare: ");
-          string? strumento = Console.ReadLine();
+    //   switch (scelta)
+    //   {
+    //     case 1:
+    //       Console.WriteLine($"Inserisci il nome del corso: ");
+    //       string? nome = Console.ReadLine();
+    //       Console.WriteLine($"Inserisci il nome del docente: ");
+    //       string? docente = Console.ReadLine();
+    //       Console.WriteLine($"Inserisci la durata del corso: ");
+    //       int durata = Convert.ToInt32(Console.ReadLine());
+    //       Console.WriteLine($"Inserisci lo strumento da suonare: ");
+    //       string? strumento = Console.ReadLine();
 
-          corsi.Add(new CorsoMusica(nome, docente, durata, new List<string>(), strumento));
-          break;
+    //       corsi.Add(new CorsoMusica(nome, docente, durata, new List<string>(), strumento));
+    //       break;
 
-        case 2:
-          Console.WriteLine($"Inserisci il nome del corso: ");
-          string? nome2 = Console.ReadLine();
-          Console.WriteLine($"Inserisci il nome del docente: ");
-          string? docente2 = Console.ReadLine();
-          Console.WriteLine($"Inserisci la durata del corso: ");
-          int durata2 = Convert.ToInt32(Console.ReadLine());
-          Console.WriteLine($"Inserisci la tecnica da utilizzare: ");
-          string? tecnica = Console.ReadLine();
+    //     case 2:
+    //       Console.WriteLine($"Inserisci il nome del corso: ");
+    //       string? nome2 = Console.ReadLine();
+    //       Console.WriteLine($"Inserisci il nome del docente: ");
+    //       string? docente2 = Console.ReadLine();
+    //       Console.WriteLine($"Inserisci la durata del corso: ");
+    //       int durata2 = Convert.ToInt32(Console.ReadLine());
+    //       Console.WriteLine($"Inserisci la tecnica da utilizzare: ");
+    //       string? tecnica = Console.ReadLine();
 
-          corsi.Add(new CorsoPittura(nome2, docente2, durata2, new List<string>(), tecnica));
-          break;
+    //       corsi.Add(new CorsoPittura(nome2, docente2, durata2, new List<string>(), tecnica));
+    //       break;
 
-        case 3:
-          Console.WriteLine($"Inserisci il nome del corso: ");
-          string? nome3 = Console.ReadLine();
-          Console.WriteLine($"Inserisci il nome del docente: ");
-          string? docente3 = Console.ReadLine();
-          Console.WriteLine($"Inserisci la durata del corso: ");
-          int durata3 = Convert.ToInt32(Console.ReadLine());
-          Console.WriteLine($"Inserisci lo stile da utilizzare: ");
-          string? stile = Console.ReadLine();
+    //     case 3:
+    //       Console.WriteLine($"Inserisci il nome del corso: ");
+    //       string? nome3 = Console.ReadLine();
+    //       Console.WriteLine($"Inserisci il nome del docente: ");
+    //       string? docente3 = Console.ReadLine();
+    //       Console.WriteLine($"Inserisci la durata del corso: ");
+    //       int durata3 = Convert.ToInt32(Console.ReadLine());
+    //       Console.WriteLine($"Inserisci lo stile da utilizzare: ");
+    //       string? stile = Console.ReadLine();
 
-          corsi.Add(new CorsoDanza(nome3, docente3, durata3, new List<string>(), stile));
-          break;
-        case 4:
-          string nomeStudente = Console.ReadLine();
-          studenti.AggiungiStudente(nomeStudente);
-          break;
-      }
-    }
+    //       corsi.Add(new CorsoDanza(nome3, docente3, durata3, new List<string>(), stile));
+    //       break;
+    //     case 4:
+    //       string nomeStudente = Console.ReadLine();
+    //       corsi.AggiungiStudente(nomeStudente);
+    //       break;
+    //     case 5:
+    //       foreach (Corso corso in corsi)
+    //       {
+    //         Console.WriteLine(corso);
+    //       }
+    //       break;
+    //   }
+    // }
   }
 }

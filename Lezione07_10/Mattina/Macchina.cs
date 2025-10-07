@@ -12,12 +12,17 @@ namespace Lezione07_10.Mattina
         public int SospensioniMax;
         public int NrModifiche;
 
-        public Macchina(string motore, float velocitaMacchina, int sospensioniMax, int nrModifiche)
+        public Macchina(string motore, float velocitaMacchina, int sospensioniMax)
         {
             Motore = motore;
             VelocitaMacchina = velocitaMacchina;
             SospensioniMax = sospensioniMax;
-            NrModifiche = nrModifiche;
+            NrModifiche = 0;
+        }
+
+        public void Stampa(string nomeUtente)
+        {
+            Console.WriteLine($"Motore: {Motore}, Velocità: {VelocitaMacchina}, Sospensioni: {SospensioniMax}, Nr Modifiche: {NrModifiche}");
         }
     }
 }

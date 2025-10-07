@@ -35,6 +35,7 @@ namespace Lezione07_10.Pomeriggio.Ereditarietà.Es_Scuola
             Console.WriteLine($"");
 
         }
+    }
 
     public class CorsoMusica : Corso
     {
@@ -92,5 +93,5 @@ namespace Lezione07_10.Pomeriggio.Ereditarietà.Es_Scuola
             Console.WriteLine("Esecuzione coreografia nello stile: " + Stile);
         }
     }
-    }
 }
+

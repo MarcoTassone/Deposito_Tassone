@@ -49,9 +49,9 @@ namespace Lezione07_10.Pomeriggio.Ereditarietà.Es_Garage
             TipoManubrio = tipoManubrio;
         }
 
-    public override string ToString()
-    {
-      return base.ToString() + $", Tipo manubrio: {TipoManubrio}";
-    }
+        public override string ToString()
+        {
+            return base.ToString() + $", Tipo manubrio: {TipoManubrio}";
+        }
     }
 }
