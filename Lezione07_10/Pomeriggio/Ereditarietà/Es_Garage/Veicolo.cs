@@ -44,7 +44,7 @@ namespace Lezione07_10.Pomeriggio.Ereditarietà.Es_Garage
     {
         public string TipoManubrio;
 
-        public Moto(string tipoManubrio, string marca, string modello) : base(marca, modello)
+        public Moto(string marca, string modello, string tipoManubrio) : base(marca, modello)
         {
             TipoManubrio = tipoManubrio;
         }
