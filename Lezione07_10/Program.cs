@@ -219,95 +219,112 @@ public class Program
 
     /// <summary>Esercizio Corsi</summary>
 
-    List<Corso> corsi = new List<Corso>();
+    // List<Corso> corsi = new List<Corso>();
 
-    bool continua = true;
-    int scelta = 0;
+    // bool continua = true;
+    // int scelta = 0;
 
-    while (continua)
-    {
-      Console.WriteLine($"Menu corsi: ");
-      Console.WriteLine($"1. Aggiungi un corso di Musica");
-      Console.WriteLine($"2. Aggiungi un corso di Pittura");
-      Console.WriteLine($"3. Aggiungi un corso di Danza");
-      Console.WriteLine($"4. Aggiungi uno studente a un corso");
-      Console.WriteLine($"5. Visualizza tutti i corsi");
-      Console.WriteLine($"6. Cerca corsi per nome docente");
-      Console.WriteLine($"7. Esegui un metodo speciale");
-      Console.WriteLine($"8. Esci");
-      scelta = int.Parse(Console.ReadLine());
+    // while (continua)
+    // {
+    //   Console.WriteLine($"Menu corsi: ");
+    //   Console.WriteLine($"1. Aggiungi un corso di Musica");
+    //   Console.WriteLine($"2. Aggiungi un corso di Pittura");
+    //   Console.WriteLine($"3. Aggiungi un corso di Danza");
+    //   Console.WriteLine($"4. Aggiungi uno studente a un corso");
+    //   Console.WriteLine($"5. Visualizza tutti i corsi");
+    //   Console.WriteLine($"6. Cerca corsi per nome docente");
+    //   Console.WriteLine($"7. Esegui un metodo speciale");
+    //   Console.WriteLine($"8. Esci");
+    //   scelta = int.Parse(Console.ReadLine());
 
-      switch (scelta)
-      {
-        case 1:
-          Console.WriteLine($"Inserisci il nome del corso: ");
-          string? nome = Console.ReadLine();
-          Console.WriteLine($"Inserisci il nome del docente: ");
-          string? docente = Console.ReadLine();
-          Console.WriteLine($"Inserisci la durata del corso: ");
-          int durata = Convert.ToInt32(Console.ReadLine());
-          Console.WriteLine($"Inserisci lo strumento da suonare: ");
-          string? strumento = Console.ReadLine();
+    //   switch (scelta)
+    //   {
+    //     case 1:
+    //       Console.WriteLine($"Inserisci il nome del corso: ");
+    //       string? nome = Console.ReadLine();
+    //       Console.WriteLine($"Inserisci il nome del docente: ");
+    //       string? docente = Console.ReadLine();
+    //       Console.WriteLine($"Inserisci la durata del corso: ");
+    //       int durata = Convert.ToInt32(Console.ReadLine());
+    //       Console.WriteLine($"Inserisci lo strumento da suonare: ");
+    //       string? strumento = Console.ReadLine();
 
-          corsi.Add(new CorsoMusica(nome, docente, durata, strumento));
-          break;
+    //       corsi.Add(new CorsoMusica(nome, docente, durata, strumento));
+    //       break;
 
-        case 2:
-          Console.WriteLine($"Inserisci il nome del corso: ");
-          string? nome2 = Console.ReadLine();
-          Console.WriteLine($"Inserisci il nome del docente: ");
-          string? docente2 = Console.ReadLine();
-          Console.WriteLine($"Inserisci la durata del corso: ");
-          int durata2 = Convert.ToInt32(Console.ReadLine());
-          Console.WriteLine($"Inserisci la tecnica da utilizzare: ");
-          string? tecnica = Console.ReadLine();
+    //     case 2:
+    //       Console.WriteLine($"Inserisci il nome del corso: ");
+    //       string? nome2 = Console.ReadLine();
+    //       Console.WriteLine($"Inserisci il nome del docente: ");
+    //       string? docente2 = Console.ReadLine();
+    //       Console.WriteLine($"Inserisci la durata del corso: ");
+    //       int durata2 = Convert.ToInt32(Console.ReadLine());
+    //       Console.WriteLine($"Inserisci la tecnica da utilizzare: ");
+    //       string? tecnica = Console.ReadLine();
 
-          corsi.Add(new CorsoPittura(nome2, docente2, durata2, tecnica));
-          break;
+    //       corsi.Add(new CorsoPittura(nome2, docente2, durata2, tecnica));
+    //       break;
 
-        case 3:
-          Console.WriteLine($"Inserisci il nome del corso: ");
-          string? nome3 = Console.ReadLine();
-          Console.WriteLine($"Inserisci il nome del docente: ");
-          string? docente3 = Console.ReadLine();
-          Console.WriteLine($"Inserisci la durata del corso: ");
-          int durata3 = Convert.ToInt32(Console.ReadLine());
-          Console.WriteLine($"Inserisci lo stile da utilizzare: ");
-          string? stile = Console.ReadLine();
+    //     case 3:
+    //       Console.WriteLine($"Inserisci il nome del corso: ");
+    //       string? nome3 = Console.ReadLine();
+    //       Console.WriteLine($"Inserisci il nome del docente: ");
+    //       string? docente3 = Console.ReadLine();
+    //       Console.WriteLine($"Inserisci la durata del corso: ");
+    //       int durata3 = Convert.ToInt32(Console.ReadLine());
+    //       Console.WriteLine($"Inserisci lo stile da utilizzare: ");
+    //       string? stile = Console.ReadLine();
 
-          corsi.Add(new CorsoDanza(nome3, docente3, durata3, stile));
-          break;
-        case 4:
-          Console.WriteLine($"Inserisci il nome dello studente:");
-          string nomeStudente = Console.ReadLine();
-          Console.WriteLine($"Inserisci eta dello studente: ");
-          int eta = Convert.ToInt32(Console.ReadLine());
-          corso1.AggiungiStudente(nomeStudente, eta);
-          break;
-        case 5:
-          foreach (Corso corso in corsi)
-          {
-            Console.WriteLine(corso.ToString());
-          }
-          break;
-        case 6:
-          Console.WriteLine($"Di quale docente vuoi visualizzare i corsi? ");
-          string? ricerca = Console.ReadLine();
-          corso1.CercaPerDocente(ricerca);
-          break;
-        case 7:
-          Console.WriteLine($"Di quale corso vuoi eseguire il metodo speciale? ");
-          string? ricerca2 = Console.ReadLine();
-          corso1.MetodoSpeciale(ricerca2);
-          break;
-        case 8:
-          continua = false;
-          Console.WriteLine($"Arrivederci!");
-          break;
-        default:
-          Console.WriteLine($"Scelta non valida!");
-          break;
-      }
-    }
+    //       corsi.Add(new CorsoDanza(nome3, docente3, durata3, stile));
+    //       break;
+    //     case 4:
+    //       for (int i = 0; i < corsi.Count; i++)
+    //       {
+    //         Console.WriteLine($"{i}. {corsi[i].NomeCorso}");
+    //       }
+    //       Console.WriteLine($"Inserisci il nome dello studente:");
+    //       string? nomeStudente = Console.ReadLine();
+    //       Console.WriteLine($"Indice del corso: ");
+    //       int indice = Convert.ToInt32(Console.ReadLine());
+    //       corsi[indice].AggiungiStudente(nomeStudente);
+    //       break;
+    //     case 5:
+    //       foreach (Corso corso in corsi)
+    //       {
+    //         Console.WriteLine(corso.ToString());
+    //       }
+    //       break;
+    //     case 6:
+    //       Console.WriteLine($"Di quale docente vuoi visualizzare i corsi? ");
+    //       string? ricercaDocente = Console.ReadLine();
+    //       foreach (Corso d in corsi)
+    //       {
+    //         if (d.Docente.Equals(ricercaDocente))
+    //         {
+    //           Console.WriteLine(d);
+    //         }
+    //       }
+    //       break;
+    //     case 7:
+    //       Console.WriteLine($"Di quale corso vuoi eseguire il metodo speciale? ");
+    //       string? ricerca2 = Console.ReadLine();
+    //       for (int i = 0; i < corsi.Count; i++)
+    //       {
+    //         Console.WriteLine($"{i}. {corsi[i].NomeCorso}");
+    //       }
+    //       Console.WriteLine($"Indice del corso: ");
+    //       int indice2 = Convert.ToInt32(Console.ReadLine());
+    //       corsi[indice2].MetodoSpeciale();
+    //       break;
+    //     case 8:
+    //       continua = false;
+    //       Console.WriteLine($"Arrivederci!");
+    //       break;
+    //     default:
+    //       Console.WriteLine($"Scelta non valida!");
+    //       break;
+    //   }
+    // }
+
   }
 }

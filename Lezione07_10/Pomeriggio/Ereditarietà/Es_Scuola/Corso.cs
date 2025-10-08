@@ -10,35 +10,27 @@ namespace Lezione07_10.Pomeriggio.Ereditarietà.Es_Scuola
         public string NomeCorso, Docente;
         int DurataOre;
 
-        List<string> Studenti;
+        public List<string> Studenti = new List<string>();
 
         public Corso(string nomeCorso, string docente, int durataOre)
         {
             NomeCorso = nomeCorso;
             Docente = docente;
             DurataOre = durataOre;
-            Studenti = new List<string>();
         }
 
-        public void AggiungiStudente(string nomeStudente, int eta)
+        public void AggiungiStudente(string nomeStudente)
         {
-            Studenti.Add(nomeStudente +", " + eta);
-        }
-
-        public void CercaPerDocente(string docente)
-        {
-            foreach (string d in Corsi)
-            {
-                if (d.Contains(docente))
-                {
-                    Console.WriteLine(d);
-                }
-            }
+            Studenti.Add(nomeStudente);
         }
 
         public override string ToString()
         {
-            return $"Corso: {NomeCorso}, Docente: {Docente}, Durata: {DurataOre}, Studenti: {Studenti}";
+            if (Studenti.Count == 0)
+            {
+                return $"Corso: {NomeCorso}, Docente: {Docente}, Durata: {DurataOre}";
+            }
+            return $"Corso: {NomeCorso}, Docente: {Docente}, Durata: {DurataOre}, Studenti: {Studenti.Count}";
         }
 
         public virtual void MetodoSpeciale()
