@@ -12,20 +12,31 @@ namespace Lezione07_10.Pomeriggio.Ereditarietà.Es_Scuola
 
         List<string> Studenti;
 
-        public Corso(string nomeCorso, string docente, int durataOre, List<string> studenti)
+        public Corso(string nomeCorso, string docente, int durataOre)
         {
             NomeCorso = nomeCorso;
             Docente = docente;
             DurataOre = durataOre;
-            Studenti = studenti;
+            Studenti = new List<string>();
         }
 
-        public void AggiungiStudente(string nomeStudente)
+        public void AggiungiStudente(string nomeStudente, int eta)
         {
-            Studenti.Add(nomeStudente);
+            Studenti.Add(nomeStudente +", " + eta);
         }
 
-        public virtual string ToString()
+        public void CercaPerDocente(string docente)
+        {
+            foreach (string d in Corsi)
+            {
+                if (d.Contains(docente))
+                {
+                    Console.WriteLine(d);
+                }
+            }
+        }
+
+        public override string ToString()
         {
             return $"Corso: {NomeCorso}, Docente: {Docente}, Durata: {DurataOre}, Studenti: {Studenti}";
         }
@@ -40,7 +51,7 @@ namespace Lezione07_10.Pomeriggio.Ereditarietà.Es_Scuola
     public class CorsoMusica : Corso
     {
         public string Strumento;
-        public CorsoMusica(string nomeCorso, string docente, int durataOre, List<string> studenti, string strumento) : base(nomeCorso, docente, durataOre, studenti)
+        public CorsoMusica(string nomeCorso, string docente, int durataOre, string strumento) : base(nomeCorso, docente, durataOre)
         {
             Strumento = strumento;
         }
@@ -59,7 +70,7 @@ namespace Lezione07_10.Pomeriggio.Ereditarietà.Es_Scuola
     public class CorsoPittura : Corso
     {
         public string Tecnica;
-        public CorsoPittura(string nomeCorso, string docente, int durataOre, List<string> studenti, string tecnica) : base(nomeCorso, docente, durataOre, studenti)
+        public CorsoPittura(string nomeCorso, string docente, int durataOre, string tecnica) : base(nomeCorso, docente, durataOre)
         {
             Tecnica = tecnica;
         }
@@ -78,7 +89,7 @@ namespace Lezione07_10.Pomeriggio.Ereditarietà.Es_Scuola
     public class CorsoDanza : Corso
     {
         public string Stile;
-        public CorsoDanza(string nomeCorso, string docente, int durataOre, List<string> studenti, string stile) : base(nomeCorso, docente, durataOre, studenti)
+        public CorsoDanza(string nomeCorso, string docente, int durataOre, string stile) : base(nomeCorso, docente, durataOre)
         {
             Stile = stile;
         }
