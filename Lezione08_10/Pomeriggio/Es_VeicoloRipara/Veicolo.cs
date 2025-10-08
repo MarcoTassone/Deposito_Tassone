@@ -7,8 +7,20 @@ namespace Lezione08_10.Pomeriggio.Es_VeicoloRipara
 {
     public class Veicolo
     {
-        public string Targa { get; }
-        
+        private string targa { get; set; }
+
+        public string Targa
+        {
+            get { return targa; }
+            set
+            {
+                if (value != " ")
+                {
+                    targa = value;
+                }
+            }
+        }
+
         public Veicolo(string targa)
         {
             Targa = targa;
