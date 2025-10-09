@@ -26,18 +26,7 @@ public class Program
       
       static void EseguiCompitoTutti(Operatore operatore)  //esegue il compito di tutti gli operatori (non funziona(?))
       {
-        if (operatore is OperatoreEmergenza oe)
-        {
-          operatore.EseguiCompito();
-        }
-        else if (operatore is OperatoreSicurezza os)
-        {
-          operatore.EseguiCompito();
-        }
-        else if (operatore is OperatoreLogistica ol)
-        {
-          operatore.EseguiCompito();
-        }
+        Console.WriteLine($"{operatore.Nome}, {operatore.EseguiCompito()}");
       }
 
       switch (scelta)
@@ -76,7 +65,10 @@ public class Program
           }
           break;
         case "e": //stampa i compiti di tutti gli operatori
-          EseguiCompitoTutti(operatori);
+          for (int i = 0; i < operatori.Count; i++)
+          {
+            EseguiCompitoTutti(operatori[i]);
+          }
           break;
         case "f":
           continua = false;

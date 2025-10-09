@@ -27,7 +27,7 @@ namespace Lezione09_10.Mattina.Es_Operatore
             get { return turno; }
             set
             {
-                if (value == "giorno" || value == "notte")
+                if (value.ToLower() == "giorno" || value.ToLower() == "notte")
                 {
                     turno = value;
                 }
@@ -135,7 +135,7 @@ namespace Lezione09_10.Mattina.Es_Operatore
 
         public override string EseguiCompito()
         {
-            return $"Coordinamente di {NumeroConsegne} consegne.";
+            return $"Coordinamento di {NumeroConsegne} consegne.";
         }
         
         public override string Stampa()
