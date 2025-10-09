@@ -17,7 +17,9 @@ public class Program
     while (continua)
     {
       Console.WriteLine($"-----Menu Operatori-----");
-      Console.WriteLine($"a. Aggiungi un nuovo operatore di uno dei tre tipi.");
+      Console.WriteLine($"a. Aggiungi operatore emergenza.");
+      Console.WriteLine($"a. Aggiungi operatore sicurezza.");
+      Console.WriteLine($"a. Aggiungi operatore logistica.");
       Console.WriteLine($"b. Stampa tutti gli operatori.");
       Console.WriteLine($"c. Chiamare EseguiCompito() di tutti.");
       Console.WriteLine($"d. Uscire.");
