@@ -157,16 +157,18 @@ public class Program
 
     /// <summary>Esercizio ripara veicolo</summary>
 
-    List<Veicolo> veicoli = new List<Veicolo>
-    {
-      new Auto("sv23234mv"),
-      new Moto("mb234ct"),
-      new Camion("sk854la")
-    };
+    // List<Veicolo> veicoli = new List<Veicolo>
+    // {
+    //   new Auto("sv23234mv"),
+    //   new Moto("mb234ct"),
+    //   new Camion("sk854la")
+    // };
 
-    foreach (var v in veicoli)
-    {
-      Console.WriteLine($"{v.Targa} - {v.Ripara()}");
-    }
+    // foreach (var v in veicoli)
+    // {
+    //   Console.WriteLine($"{v.Targa} - {v.Ripara()}");
+    // }
+
+
   }
 }
