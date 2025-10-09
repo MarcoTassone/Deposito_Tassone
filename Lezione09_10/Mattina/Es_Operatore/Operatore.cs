@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Lezione09_10.Mattina.Es_Operatore
 {
-    public class Operatore
+    public class Operatore  //Classe padre
     {
         private string nome;
         private string turno;
@@ -51,16 +51,17 @@ namespace Lezione09_10.Mattina.Es_Operatore
         }
     }
 
-    public class OperatoreEmergenza : Operatore
+    public class OperatoreEmergenza : Operatore  //classe figlio1
     {
+        private int livelloUrgenza;
         public int LivelloUrgenza
         {
-            get { return LivelloUrgenza; }
+            get { return livelloUrgenza; }
             set
             {
                 if (value >= 1 && value <= 5)
                 {
-                    LivelloUrgenza = value;
+                    livelloUrgenza = value;
                 }
             }
         }
@@ -74,18 +75,26 @@ namespace Lezione09_10.Mattina.Es_Operatore
         {
             return $"Gestione emergenza di livello {LivelloUrgenza}.";
         }
+
+        public override string Stampa()
+        {
+            return $"Nome operatore emergenza: {Nome}, Turno: {Turno}, Livello urgenza: {LivelloUrgenza}, Compito: {EseguiCompito()}. ";
+        }
     }
 
-    public class OperatoreSicurezza : Operatore
+    public class OperatoreSicurezza : Operatore  //classe figlio2
     {
+
+        private string areaSorvegliata;
+
         public string AreaSorvegliata
         {
-            get { return AreaSorvegliata; }
+            get { return areaSorvegliata; }
             set
             {
                 if (value != " ")
                 {
-                    AreaSorvegliata = value;
+                    areaSorvegliata = value;
                 }
             }
         }
@@ -94,22 +103,28 @@ namespace Lezione09_10.Mattina.Es_Operatore
             AreaSorvegliata = areaSorvegliata;
         }
 
-    public override string EseguiCompito()
-    {
-        return $"Sorveglianza dell'area {AreaSorvegliata}.";
-    }
+        public override string EseguiCompito()
+        {
+            return $"Sorveglianza dell'area {AreaSorvegliata}.";
+        }
+
+        public override string Stampa()
+        {
+            return $"Nome operatore sicurezza: {Nome}, Turno: {Turno}, Area sorvegliata: {AreaSorvegliata}, Compito: {EseguiCompito()}. ";
+        }
     }
 
-    public class OperatoreLogistica : Operatore
+    public class OperatoreLogistica : Operatore  //classe figlio3
     {
+        private int numeroConsegne;
         public int NumeroConsegne
         {
-            get { return NumeroConsegne; }
+            get { return numeroConsegne; }
             set
             {
                 if (value >= 0)
                 {
-                    NumeroConsegne = value;
+                    numeroConsegne = value;
                 }
             }
         }
@@ -117,10 +132,15 @@ namespace Lezione09_10.Mattina.Es_Operatore
         {
             NumeroConsegne = numeroConsegne;
         }
-        
+
         public override string EseguiCompito()
         {
             return $"Coordinamente di {NumeroConsegne} consegne.";
+        }
+        
+        public override string Stampa()
+        {
+            return $"Nome operatore logistica: {Nome}, Turno: {Turno}, Numero consegne: {NumeroConsegne}, Compito: {EseguiCompito()}. ";
         }
     }
 }
