@@ -53,13 +53,19 @@ class Program
           }
           break;
         case 2:
-          MostraInfoDispositivo(dispositivi);
+          Console.WriteLine($"Di quale dispositivo vuoi mostrare le informazioni?\n 1.Computer\n 2.Stampante");
+          sceltaDispositivo = Convert.ToInt32(Console.ReadLine());
+          MostraInfoDispositivo(dispositivi[sceltaDispositivo - 1]);
           break;
         case 3:
-          AccendiDispositivo(dispositivi);
+          Console.WriteLine($"Quale dispositivo vuoi accendere?\n 1.Computer\n 2.Stampante");
+          sceltaDispositivo = Convert.ToInt32(Console.ReadLine());
+          AccendiDispositivo(dispositivi[sceltaDispositivo - 1]);
           break;
         case 4:
-          SpegniDispositivo(dispositivi);
+          Console.WriteLine($"Quale dispositivo vuoi spegnere?\n 1.Computer\n 2.Stampante");
+          sceltaDispositivo = Convert.ToInt32(Console.ReadLine());
+          SpegniDispositivo(dispositivi[sceltaDispositivo - 1]);
           break;
         case 5:
           continua = false;
@@ -69,18 +75,18 @@ class Program
     }
   }
 
-  static void MostraInfoDispositivo(List<DispositivoElettronico> d)
+  static void MostraInfoDispositivo(DispositivoElettronico d)
   {
-    d.ForEach((dispositivo) => dispositivo.MostraInfo());
+    d.MostraInfo();
   }
 
-  static void AccendiDispositivo(List<DispositivoElettronico> d)
+  static void AccendiDispositivo(DispositivoElettronico d)
   {
-    d.ForEach((dispositivo) => dispositivo.Accendi());
+    d.Accendi();
   }
 
-  static void SpegniDispositivo(List<DispositivoElettronico> d)
+  static void SpegniDispositivo(DispositivoElettronico d)
   {
-    d.ForEach((dispositivo) => dispositivo.Spegni());
+    d.Spegni();
   }
 }
