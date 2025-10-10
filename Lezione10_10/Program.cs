@@ -148,6 +148,7 @@ class Program
 
 
     List<Corso> corsi = new List<Corso>();
+    List<Docente> docente = new List<Docente>();
 
     bool continua = true;
     int scelta = 0;
@@ -175,7 +176,13 @@ class Program
             int numeroPosti = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine($"Inserire l'aula del corso: ");
             string? aula = Console.ReadLine();
+            Console.WriteLine($"Inserire il nome del docente: ");
+            string? nomeDocente = Console.ReadLine();
+            Console.WriteLine($"Inserire la materia insegnata: ");
+            string? materiaInsegnata = Console.ReadLine();
+            docente.Add(new Docente(titolo, durataOre, nomeDocente, materiaInsegnata));
             corsi.Add(new CorsoInPresenza(titolo, durataOre, numeroPosti, aula));
+            StampaErogaCorso(corsi[corsi.Count - 1]);
           }
           else if (sceltaCorso == 2)
           {
@@ -188,6 +195,7 @@ class Program
             Console.WriteLine($"Inserire il link di accesso del corso: ");
             string? linkAccesso = Console.ReadLine();
             corsi.Add(new CorsoOnline(titolo, durataOre, piattaforma, linkAccesso));
+            StampaErogaCorso(corsi[corsi.Count - 1]);
           }
           break;
         case 2:
@@ -208,7 +216,12 @@ class Program
     // }
     
 
-    /// <summary>Metodo stama dettagli dei corsi</summary>
+    /// <summary>Metodi stampa dettagli dei corsi</summary>
+    
+    static void StampaErogaCorso(Corso corsi)
+    {
+      corsi.ErogaCorso();
+    }
     static void StampaDettagliCorso(List<Corso> corsi)
     {
       foreach (Corso corso in corsi)

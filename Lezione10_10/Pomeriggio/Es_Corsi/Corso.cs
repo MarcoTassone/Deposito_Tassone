@@ -86,11 +86,14 @@ namespace Lezione10_10.Pomeriggio.Es_Corsi
 
         public override void ErogaCorso()
         {
+            Console.WriteLine($"============================================");
             Console.WriteLine($"Il corso in presenza è stato erogato.");
+            Console.WriteLine($"============================================");
         }
 
         public override void StampaDettagli()
         {
+            Console.WriteLine($"============================================");
             Console.WriteLine($"Titolo: {Titolo}");
             Console.WriteLine($"Durata: {DurataOre} ore");
             Console.WriteLine($"Numero posti: {NumeroPosti}");
@@ -137,16 +140,67 @@ namespace Lezione10_10.Pomeriggio.Es_Corsi
 
         public override void ErogaCorso()
         {
+            Console.WriteLine($"============================================");
             Console.WriteLine($"Il corso online è stato erogato.");
+            Console.WriteLine($"============================================");
         }
 
         public override void StampaDettagli()
         {
+            Console.WriteLine($"============================================");
             Console.WriteLine($"Titolo: {Titolo}");
             Console.WriteLine($"Durata: {DurataOre} ore");
             Console.WriteLine($"Piattaforma: {Piattaforma}");
             Console.WriteLine($"Link di accesso: {LinkAccesso}");
             Console.WriteLine($"============================================");
+        }
+    }
+
+    public class Docente : Corso
+    {
+        private string? _nome;
+        private string? _materiaInsegnata;
+
+        public string? Nome
+        {
+            get { return _nome; }
+            set
+            {
+                if (value != null)
+                {
+                    _nome = value;
+                }
+            }
+        }
+
+        public string? MateriaInsegnata
+        {
+            get { return _materiaInsegnata; }
+            set
+            {
+                if (value != null)
+                {
+                    _materiaInsegnata = value;
+                }
+            }
+        }
+
+        public Docente(string? titolo, int durataOre, string? nome, string? materiaInsegnata) : base(titolo, durataOre)
+        {
+            Nome = nome;
+            MateriaInsegnata = materiaInsegnata;
+        }
+
+        public override void StampaDettagli()
+        {
+            Console.WriteLine($"Docente: {Nome}");
+            Console.WriteLine($"Materia insegnata: {MateriaInsegnata}");
+            Console.WriteLine($"============================================");
+        }
+
+        public override void ErogaCorso()
+        {
+            throw new NotImplementedException();
         }
     }
 }
