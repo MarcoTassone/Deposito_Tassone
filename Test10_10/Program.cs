@@ -2,6 +2,8 @@
 // Console.WriteLine("Hello, World!");
 
 
+using Test10_10;
+
 class Program
 {
   public static void Main(string[] args)
@@ -53,6 +55,7 @@ class Program
           {
             Console.WriteLine($"{i} - {animali[i]}");
           }
+          break;
         case 3:
           foreach (Animale a in animali)
           {
@@ -61,7 +64,7 @@ class Program
           break;
         case 4:
           Console.WriteLine($"Text");
-          
+          break;
       }
     }
   }
