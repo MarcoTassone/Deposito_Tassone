@@ -12,7 +12,7 @@ namespace Lezione13_10.Pomeriggio.Logger
 
         private Logger()
         {
-        
+
         }
 
         public static Logger GetIstanza()
