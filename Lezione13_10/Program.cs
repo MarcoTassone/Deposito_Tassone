@@ -49,6 +49,11 @@ class Program
 
     // loggerList.Log("Ciao");  ///anche questo funziona
     // loggerList2.StampaLog();
+
+    LoggerEventi.Istanza.Log("Reset computer");
+    LoggerErrore.Istanza.Log("File non trovato");
+    LoggerEventi.Istanza.StampaLog();
+    LoggerErrore.Istanza.StampaLog();
   }
   
   /// <summary>Metodo usato per logger senza lista</summary>
