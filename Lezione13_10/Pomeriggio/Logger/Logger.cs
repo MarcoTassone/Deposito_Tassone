@@ -24,7 +24,7 @@ namespace Lezione13_10.Pomeriggio.Logger
             return _istanza;
         }
         
-        public static void ScriviMessaggio(string messaggio)
+        public void ScriviMessaggio(string messaggio)
         {
             Console.WriteLine(DateTime.Now + " " + messaggio);
         }

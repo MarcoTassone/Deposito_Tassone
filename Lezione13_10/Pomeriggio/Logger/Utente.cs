@@ -17,7 +17,7 @@ namespace Lezione13_10.Pomeriggio.Logger
         public void Azione(string? azione)
         {
             Logger logger = Logger.GetIstanza();
-            Logger.ScriviMessaggio($"Utente {Nome} ha eseguito l'azione {azione}");
+            logger.ScriviMessaggio($"Utente {Nome} ha eseguito l'azione {azione}");
         }
     }
 }

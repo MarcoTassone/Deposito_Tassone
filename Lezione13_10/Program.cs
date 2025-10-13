@@ -9,10 +9,10 @@ class Program
   public static void Main(string[] args)
   {
     Logger logger = Logger.GetIstanza();
-    Logger.ScriviMessaggio("Ciao");
+    logger.ScriviMessaggio("Ciao");
 
     Logger logger1 = Logger.GetIstanza();
-    Logger.ScriviMessaggio("bau");
+    logger1.ScriviMessaggio("bau");
 
     NonLoSo();
 
@@ -38,6 +38,6 @@ class Program
   static void NonLoSo()
   {
     Logger logger = Logger.GetIstanza();
-    Logger.ScriviMessaggio("Non lo so");
+    logger.ScriviMessaggio("Non lo so");
   }
 }
