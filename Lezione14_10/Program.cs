@@ -22,6 +22,8 @@ class Program
 
     // ConfigurazioneSistema.Istance.StampaTutte();
 
+    /// <summary>Factory method</summary>
+
     // Creator creatorA = new ConcreteCreatorA();
     // creatorA.AnOperation();  // Usa ConcreteProductA
 
@@ -31,6 +33,9 @@ class Program
     bool continua = true;
     int scelta;
 
+    VeicoloFactory AutoFactory= new CreatorVeicoloFactoryAuto();
+    VeicoloFactory MotoFactory = new CreatorVeicoloFactoryMoto();
+    VeicoloFactory CamionFactory = new CreatorVeicoloFactoryCamion();
     while (continua)
     {
       Console.WriteLine($"-----Menu-----");
@@ -40,22 +45,27 @@ class Program
 
       switch (scelta){
         case 1:
-          Console.WriteLine($"Che tipo di veicolo vuoi creare?\n 1.Auto\n2.Moto\n3.Camion");
+          Console.WriteLine($"Che tipo di veicolo vuoi creare?\n1.Auto\n2.Moto\n3.Camion");
           string? sceltaVeicolo = Console.ReadLine().ToLower();
-          Iveicolo veicolo = VeicoloFactory.CreateVeicolo(sceltaVeicolo);
-
-          if (veicolo != null)
+          switch (sceltaVeicolo)
           {
-            veicolo.Avvia();
-            veicolo.MostraTipo();
-          }
-          else
-          {
-            Console.WriteLine($"Tipo di veicolo non valido.");
+            case "auto":
+              AutoFactory.AvviaVeicolo();
+              AutoFactory.MostraTipoVeicolo();
+              break;
+            case "moto":
+              MotoFactory.AvviaVeicolo();
+              MotoFactory.MostraTipoVeicolo();
+              break;
+            case "camion":
+              CamionFactory.AvviaVeicolo();
+              CamionFactory.MostraTipoVeicolo();
+              break;
           }
           break;
         case 2:
           Console.WriteLine($"Arrivederci!");
+          Console.ReadKey();
           continua = false;
           break;
         default:

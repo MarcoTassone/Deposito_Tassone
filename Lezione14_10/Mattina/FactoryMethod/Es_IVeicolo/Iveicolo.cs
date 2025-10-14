@@ -53,21 +53,61 @@ namespace Lezione14_10.Mattina.FactoryMethod.Es_IVeicolo
 
     public abstract class VeicoloFactory
     {
-        public static Iveicolo CreateVeicolo(string tipo)
+
+        public abstract Iveicolo FactoryMethod();
+
+        public void AvviaVeicolo()
         {
-            switch (tipo.ToLower())
-            {
-                case "auto":
-                    return new ConcreteVeicoloAuto();
-                case "moto":
-                    return new ConcreteVeicoloMoto();
-                case "camion":
-                    return new ConcreteVeicoloCamion();
-                default:
-                    Console.WriteLine($"Tipo di veicolo non valido");
-                    break;
-            }
-            return null;
+            Iveicolo veicolo = FactoryMethod();
+            veicolo.Avvia();
+        }
+
+        public void MostraTipoVeicolo()
+        {
+            Iveicolo veicolo = FactoryMethod();
+            veicolo.MostraTipo();
+        }
+
+        /// <summary>Senza classe abstract</summary>
+        // public static Iveicolo CreateVeicolo(string tipo)
+        // {
+        //     switch (tipo.ToLower())
+        //     {
+        //         case "auto":
+        //             return new ConcreteVeicoloAuto();
+        //         case "moto":
+        //             return new ConcreteVeicoloMoto();
+        //         case "camion":
+        //             return new ConcreteVeicoloCamion();
+        //         default:
+        //             Console.WriteLine($"Tipo di veicolo non valido");
+        //             break;
+        //     }
+        //     return null;
+        // }
+    }
+
+    public class CreatorVeicoloFactoryAuto : VeicoloFactory
+    {
+        public override Iveicolo FactoryMethod()
+        {
+            return new ConcreteVeicoloAuto();
+        }
+    }
+
+    public class CreatorVeicoloFactoryMoto : VeicoloFactory
+    {
+        public override Iveicolo FactoryMethod()
+        {
+            return new ConcreteVeicoloMoto();
+        }
+    }
+
+    public class CreatorVeicoloFactoryCamion : VeicoloFactory
+    {
+        public override Iveicolo FactoryMethod()
+        {
+            return new ConcreteVeicoloCamion();
         }
     }
 }
