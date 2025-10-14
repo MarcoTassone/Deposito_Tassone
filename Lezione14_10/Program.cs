@@ -3,6 +3,7 @@
 
 using Lezione14_10.Mattina;
 using Lezione14_10.Mattina.FactoryMethod;
+using Lezione14_10.Mattina.FactoryMethod.Es_IShape;
 using Lezione14_10.Mattina.FactoryMethod.Es_IVeicolo;
 
 class Program
@@ -30,42 +31,108 @@ class Program
     // Creator creatorB = new ConcreteCreatorB();
     // creatorB.AnOperation();  // Usa ConcreteProductB
 
+
+    /// <summary>Esercizio factory veicolo</summary>
+
+    // bool continua = true;
+    // int scelta;
+
+    // VeicoloFactory AutoFactory= new CreatorVeicoloFactoryAuto();
+    // VeicoloFactory MotoFactory = new CreatorVeicoloFactoryMoto();
+    // VeicoloFactory CamionFactory = new CreatorVeicoloFactoryCamion();
+
+    // NaveFactory YachtFactory = new CreatorNaveFactoryYacht();
+    // NaveFactory PiroscafoFactory = new CreatorNaveFactoryPiroscafo();
+    // NaveFactory VelieroFactory = new CreatorNaveFactoryVeliero();
+    // while (continua)
+    // {
+    //   Console.WriteLine($"-----Menu-----");
+    //   Console.WriteLine($"1. Inserire quale veicolo creare.");
+    //   Console.WriteLine($"2. Inserire quale nave creare. ");
+    //   Console.WriteLine($"2. Uscire.");
+    //   scelta = int.Parse(Console.ReadLine());
+
+    //   switch (scelta){
+    //     case 1:
+    //       Console.WriteLine($"Che tipo di veicolo vuoi creare?\nAuto\nMoto\nCamion");
+    //       string? sceltaVeicolo = Console.ReadLine().ToLower();
+    //       switch (sceltaVeicolo)
+    //       {
+    //         case "auto":
+    //           AutoFactory.AvviaVeicolo();
+    //           AutoFactory.MostraTipoVeicolo();
+    //           break;
+    //         case "moto":
+    //           MotoFactory.AvviaVeicolo();
+    //           MotoFactory.MostraTipoVeicolo();
+    //           break;
+    //         case "camion":
+    //           CamionFactory.AvviaVeicolo();
+    //           CamionFactory.MostraTipoVeicolo();
+    //           break;
+    //       }
+    //       break;
+    //     case 2:
+    //       Console.WriteLine($"Che tipo di nave vuoi crearea?\nYacht\nPiroscafo\nVeliero");
+    //       string? sceltaNave = Console.ReadLine().ToLower();
+    //       switch (sceltaNave)
+    //       {
+    //         case "yacht":
+    //           YachtFactory.AvviaNave();
+    //           YachtFactory.MostraTipoNave();
+    //           break;
+    //         case "piroscafo":
+    //           PiroscafoFactory.AvviaNave();
+    //           PiroscafoFactory.MostraTipoNave();
+    //           break;
+    //         case "veliero":
+    //           VelieroFactory.AvviaNave();
+    //           VelieroFactory.MostraTipoNave();
+    //           break;
+    //       }
+    //       break;
+    //     case 3:
+    //     Console.WriteLine($"Arrivederci!");
+    //       continua = false;
+    //       break;
+    //     default:
+    //       Console.WriteLine($"Scelta non valida.");
+    //       break;
+    //   }
+    // }
+
+
+
+    /// <summary>Esercizio factory forma</summary>
+
+
     bool continua = true;
     int scelta;
 
-    VeicoloFactory AutoFactory= new CreatorVeicoloFactoryAuto();
-    VeicoloFactory MotoFactory = new CreatorVeicoloFactoryMoto();
-    VeicoloFactory CamionFactory = new CreatorVeicoloFactoryCamion();
     while (continua)
     {
       Console.WriteLine($"-----Menu-----");
-      Console.WriteLine($"1. Inserire quale veicolo creare.");
+      Console.WriteLine($"1. Inserire quale forma creare.");
       Console.WriteLine($"2. Uscire.");
       scelta = int.Parse(Console.ReadLine());
 
-      switch (scelta){
+      switch (scelta)
+      {
         case 1:
-          Console.WriteLine($"Che tipo di veicolo vuoi creare?\n1.Auto\n2.Moto\n3.Camion");
-          string? sceltaVeicolo = Console.ReadLine().ToLower();
-          switch (sceltaVeicolo)
+          Console.WriteLine($"Quale forma vuoi creare?\nCerchio\nQuadrato");
+          string? sceltaForma = Console.ReadLine().ToLower();
+          switch (sceltaForma)
           {
-            case "auto":
-              AutoFactory.AvviaVeicolo();
-              AutoFactory.MostraTipoVeicolo();
+            case "cerchio":
+              ShapeCreator.CreateShape(sceltaForma);
               break;
-            case "moto":
-              MotoFactory.AvviaVeicolo();
-              MotoFactory.MostraTipoVeicolo();
-              break;
-            case "camion":
-              CamionFactory.AvviaVeicolo();
-              CamionFactory.MostraTipoVeicolo();
+            case "quadrato":
+              ShapeCreator.CreateShape(sceltaForma);
               break;
           }
           break;
         case 2:
           Console.WriteLine($"Arrivederci!");
-          Console.ReadKey();
           continua = false;
           break;
         default:
