@@ -142,9 +142,64 @@ class Program
     //   }
     // }
 
-    RegistroVeicoli veicoli = RegistroVeicoli.GetInstanza();
+
+    /// <summary>Esercizio veicolo con due pattern</summary>
+
+    // RegistroVeicoli veicoli = RegistroVeicoli.GetInstanza();
 
 
+
+    // bool continua = true;
+    // int scelta;
+
+    // while (continua)
+    // {
+    //   Console.WriteLine($"-----Menu-----");
+    //   Console.WriteLine($"1. Inserire quale veicolo creare.");
+    //   Console.WriteLine($"2. Stampa dettagli.");
+    //   Console.WriteLine($"3. Uscire.");
+    //   scelta = int.Parse(Console.ReadLine());
+
+    //   switch (scelta)
+    //   {
+    //     case 1:
+    //       Console.WriteLine($"Che tipo di veicolo vuoi creare?\nAuto\nMoto\nCamion");
+    //       string? sceltaVeicolo = Console.ReadLine().ToLower();
+    //       VeicoloFactoryDP.CreaVeicolo(sceltaVeicolo);
+    //       switch (sceltaVeicolo)
+    //       {
+    //         case "auto":
+    //           veicoli.Registra(VeicoloFactoryDP.CreaVeicolo(sceltaVeicolo));
+    //           break;
+    //         case "moto":
+    //           veicoli.Registra(VeicoloFactoryDP.CreaVeicolo(sceltaVeicolo));
+    //           break;
+    //         case "camion":
+    //           veicoli.Registra(VeicoloFactoryDP.CreaVeicolo(sceltaVeicolo));
+    //           break;
+    //       }
+    //       break;
+    //     case 2:
+    //       veicoli.StampaTutti();
+    //       break;
+    //     case 3:
+    //       Console.WriteLine($"Arrivederci!");
+    //       continua = false;
+    //       break;
+    //     default:
+    //       Console.WriteLine($"Scelta non valida.");
+    //       break;
+    //   }
+    // }
+
+
+    ConfigurazioneSistemaDP ModuloA = ConfigurazioneSistemaDP.GetInstanza();
+    ConfigurazioneSistemaDP ModuloB = ConfigurazioneSistemaDP.GetInstanza();
+
+    Console.WriteLine($"sono uguali? {object.ReferenceEquals(ModuloA, ModuloB)}");
+
+
+    
 
     bool continua = true;
     int scelta;
@@ -152,39 +207,53 @@ class Program
     while (continua)
     {
       Console.WriteLine($"-----Menu-----");
-      Console.WriteLine($"1. Inserire quale veicolo creare.");
+      Console.WriteLine($"1. Inserire quale dispositivo creare.");
       Console.WriteLine($"2. Stampa dettagli.");
-      Console.WriteLine($"3. Uscire.");
+      Console.WriteLine($"3. Controlla se puntano alla stessa istanza");
+      Console.WriteLine($"4. Uscire.");
       scelta = int.Parse(Console.ReadLine());
 
       switch (scelta)
       {
         case 1:
-          Console.WriteLine($"Che tipo di veicolo vuoi creare?\nAuto\nMoto\nCamion");
-          string? sceltaVeicolo = Console.ReadLine().ToLower();
-          VeicoloFactoryDP.CreaVeicolo(sceltaVeicolo);
-          switch (sceltaVeicolo)
+          Console.WriteLine($"Quale dispositivo vuoi creare?\nComputer\nStampante");
+          string? sceltaDispositivo = Console.ReadLine().ToLower();
+          DispositivoFactory.CreaDispositivo(sceltaDispositivo);
+          switch (sceltaDispositivo)
           {
-            case "auto":
-              veicoli.Registra(VeicoloFactoryDP.CreaVeicolo(sceltaVeicolo));
+            case "computer":
+              Console.WriteLine($"Inserire chiave e valore: ");
+              string? sceltaChiaveComputer = Console.ReadLine().ToLower();
+              Console.WriteLine($"chiave inserita.");
+              string? sceltaValoreComputer = Console.ReadLine().ToLower();
+              Console.WriteLine($"valore inserito");
+              ModuloA.Imposta(sceltaChiaveComputer, sceltaValoreComputer);
               break;
-            case "moto":
-              veicoli.Registra(VeicoloFactoryDP.CreaVeicolo(sceltaVeicolo));
-              break;
-            case "camion":
-              veicoli.Registra(VeicoloFactoryDP.CreaVeicolo(sceltaVeicolo));
+            case "stampante":
+              Console.WriteLine($"Inserire chiave e valore: ");
+              string? sceltaChiaveStampante = Console.ReadLine().ToLower();
+              Console.WriteLine($"chiave inserita.");
+              string? sceltaValoreStampante = Console.ReadLine().ToLower();
+              Console.WriteLine($"valore inserito");
+              ModuloB.Imposta(sceltaChiaveStampante, sceltaValoreStampante);
               break;
           }
           break;
         case 2:
-          veicoli.StampaTutti();
+          ModuloA.StampaTutte();
+          ModuloB.StampaTutte();
           break;
         case 3:
+          Console.WriteLine($"HashCode ModuloA: {ModuloA.GetHashCode()}");
+          Console.WriteLine($"HashCode ModuloB: {ModuloB.GetHashCode()}");
+          Console.WriteLine($"Sono uguali? {object.ReferenceEquals(ModuloA, ModuloB)}");
+          break;
+        case 4:
           Console.WriteLine($"Arrivederci!");
           continua = false;
           break;
         default:
-          Console.WriteLine($"Scelta non valida.");
+          Console.WriteLine("Scelta non valida");
           break;
       }
     }
