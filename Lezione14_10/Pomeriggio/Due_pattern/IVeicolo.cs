@@ -25,12 +25,15 @@ namespace Lezione14_10.Pomeriggio.Due_pattern
         public void Registra(IVeicolo veicoli)
         {
             veicoliCreati.Add(veicoli);
+            Console.WriteLine($"Veicolo registrato.");
+            
         }
 
         public void StampaTutti()
         {
             foreach (IVeicolo veicolo in veicoliCreati)
             {
+                veicolo.Avvia();
                 veicolo.MostraTipo();
             }
         }
