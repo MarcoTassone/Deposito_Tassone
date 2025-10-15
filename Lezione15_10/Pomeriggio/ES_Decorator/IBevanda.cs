@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 namespace Lezione15_10.Pomeriggio.ES_Decorator
 {
     #region Interfaccia + classi concrete
-    public interface IBevanda //interfaccia 
+    public interface IBevanda //interfaccia con metodi descrizione e costo
     {
         string Descrizione();
         double Costo();
     }
 
-    public class Caffe : IBevanda
+    public class Caffe : IBevanda //implementazione dell'interfaccia con metodi
     {
         public string Descrizione() => "Caffe";
         public double Costo() => 0.99;
