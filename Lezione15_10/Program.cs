@@ -2,6 +2,7 @@
 // Console.WriteLine("Hello, World!");
 
 using Lezione15_10.Mattina;
+using Lezione15_10.Mattina.Es_Creazione_Utente;
 using Lezione15_10.Mattina.Es_Observer;
 using Lezione15_10.Mattina.Es_ObserverDP;
 
@@ -45,6 +46,8 @@ class Program
     // int scelta;
     // int sceltaObserver;
 
+
+    /// <summary>Prova con extra non finito</summary>
     // while (continuaObserver)
     // {
     //   Console.WriteLine($"-----Menu Observer-----");
@@ -111,28 +114,74 @@ class Program
     /// <summary>Esercizio observer + singleton</summary>
 
 
-    NewsAgency newsAgency = NewsAgency.GetInstance();
+    // NewsAgency newsAgency = NewsAgency.GetInstance();
 
-    INewsSubscriber mobileSubcriber = new MobileApp();
-    INewsSubscriber emailSubcriber = new EmailClient();
+    // INewsSubscriber mobileSubcriber = new MobileApp();
+    // INewsSubscriber emailSubcriber = new EmailClient();
 
-    newsAgency.AddSubscriber(mobileSubcriber);
-    newsAgency.AddSubscriber(emailSubcriber);
+    // newsAgency.AddSubscriber(mobileSubcriber);
+    // newsAgency.AddSubscriber(emailSubcriber);
 
-    Console.WriteLine($"Inserisci il titolo della notizia: ");
-    string? title = Console.ReadLine();
-    newsAgency.Notify(title);
-    Console.WriteLine($"Ci sono altre notizie? (s/n)");
-    string? risposta = Console.ReadLine().ToLower();
-    if (risposta == "n")
+    // Console.WriteLine($"Inserisci il titolo della notizia: ");
+    // string? title = Console.ReadLine();
+    // newsAgency.Notify(title);
+    // Console.WriteLine($"Ci sono altre notizie? (s/n)");
+    // string? risposta = Console.ReadLine().ToLower();
+    // if (risposta == "n")
+    // {
+    //   Console.WriteLine($"Notizie terminate.");
+    // }
+    // else
+    // {
+    //   Console.WriteLine($"Inserisci nuova notizia: ");
+    //   string? nuoveNotizie = Console.ReadLine();
+    //   newsAgency.Notify(nuoveNotizie);
+    // }
+
+
+
+    /// <summary>Esercizio con 2 pattern (potrebbero essere 3)</summary>
+
+
+    GestoreCreazioneUtente gestore = GestoreCreazioneUtente.GetInstatnce();
+
+    IObserverDP moduloLog = new ModuloLog();
+    IObserverDP moduloMarketing = new ModuloMarketing();
+
+    gestore.Registra(moduloLog);
+    gestore.Registra(moduloMarketing);
+
+    bool continua = true;
+    int scelta;
+
+    while (continua)
     {
-      Console.WriteLine($"Notizie terminate.");
-    }
-    else
-    {
-      Console.WriteLine($"Inserisci nuova notizia: ");
-      string? nuoveNotizie = Console.ReadLine();
-      newsAgency.Notify(nuoveNotizie);
+      Console.WriteLine($"-----Menu Utente-----");
+      Console.WriteLine($"1. Crea utente.");
+      Console.WriteLine($"2. .");
+      Console.WriteLine($"3. Esci.");
+      scelta = Convert.ToInt32(Console.ReadLine());
+
+      switch (scelta)
+      {
+        case 1:
+          Console.WriteLine($"Inserisci il nome dell'utente: ");
+          string? userName = Console.ReadLine();
+          gestore.CreaUtente(userName);
+          moduloLog.NotificaCreazione(userName);
+          moduloMarketing.NotificaCreazione(userName);
+          break;
+        case 2:
+          
+          break;
+        case 3:
+          Console.WriteLine($"Arrivederci!");
+          continua = false;
+          break;
+        default:
+          Console.WriteLine($"Scelta non valida.");
+          break;
+      }
     }
   }
 }
