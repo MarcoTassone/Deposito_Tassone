@@ -1,10 +1,13 @@
 ﻿// See https://aka.ms/new-console-template for more information
 // Console.WriteLine("Hello, World!");
 
+using System.ComponentModel;
 using Lezione15_10.Mattina;
 using Lezione15_10.Mattina.Es_Creazione_Utente;
 using Lezione15_10.Mattina.Es_Observer;
 using Lezione15_10.Mattina.Es_ObserverDP;
+using Lezione15_10.Pomeriggio.ES_Decorator;
+using Lezione15_10.Pomeriggio.Esempio_Decorator;
 
 class Program
 {
@@ -143,46 +146,91 @@ class Program
     /// <summary>Esercizio con 2 pattern (potrebbero essere 3)</summary>
 
 
-    GestoreCreazioneUtente gestore = GestoreCreazioneUtente.GetInstatnce();
+    // GestoreCreazioneUtente gestore = GestoreCreazioneUtente.GetInstatnce();
 
-    IObserverDP moduloLog = new ModuloLog();
-    IObserverDP moduloMarketing = new ModuloMarketing();
+    // IObserverDP moduloLog = new ModuloLog();
+    // IObserverDP moduloMarketing = new ModuloMarketing();
 
-    gestore.Registra(moduloLog);
-    gestore.Registra(moduloMarketing);
+    // gestore.Registra(moduloLog);
+    // gestore.Registra(moduloMarketing);
 
-    bool continua = true;
-    int scelta;
+    // bool continua = true;
+    // int scelta;
 
-    while (continua)
-    {
-      Console.WriteLine($"-----Menu Utente-----");
-      Console.WriteLine($"1. Crea utente.");
-      Console.WriteLine($"2. .");
-      Console.WriteLine($"3. Esci.");
-      scelta = Convert.ToInt32(Console.ReadLine());
+    // while (continua)
+    // {
+    //   Console.WriteLine($"-----Menu Utente-----");
+    //   Console.WriteLine($"1. Crea utente.");
+    //   Console.WriteLine($"2. .");
+    //   Console.WriteLine($"3. Esci.");
+    //   scelta = Convert.ToInt32(Console.ReadLine());
 
-      switch (scelta)
-      {
-        case 1:
-          Console.WriteLine($"Inserisci il nome dell'utente: ");
-          string? userName = Console.ReadLine();
-          gestore.CreaUtente(userName);
-          moduloLog.NotificaCreazione(userName);
-          moduloMarketing.NotificaCreazione(userName);
-          break;
-        case 2:
-          
-          break;
-        case 3:
-          Console.WriteLine($"Arrivederci!");
-          continua = false;
-          break;
-        default:
-          Console.WriteLine($"Scelta non valida.");
-          break;
-      }
-    }
+    //   switch (scelta)
+    //   {
+    //     case 1:
+    //       Console.WriteLine($"Inserisci il nome dell'utente: ");
+    //       string? userName = Console.ReadLine();
+    //       gestore.CreaUtente(userName);
+    //       moduloLog.NotificaCreazione(userName);
+    //       moduloMarketing.NotificaCreazione(userName);
+    //       break;
+    //     case 2:
+
+    //       break;
+    //     case 3:
+    //       Console.WriteLine($"Arrivederci!");
+    //       continua = false;
+    //       break;
+    //     default:
+    //       Console.WriteLine($"Scelta non valida.");
+    //       break;
+    //   }
+    // }
+
+
+    /// <summary>Esempio decorator</summary>
+
+
+    // Oggetto di base
+    // IComponentES component = new ConcreteComponent();
+    // Console.WriteLine("Client: chiamata diretta al ConcreteComponent:");
+    // component.Operation();
+
+    // // Decoro con A
+    // IComponentES decoratorA = new ConcreteDecoratorA(component);
+    // Console.WriteLine("\nClient: ConcreteComponent decorato con A:");
+    // decoratorA.Operation();
+
+    // // Decoro con A poi B (catena di decorator)
+    // IComponentES decoratorB = new ConcreteDecoratorB(decoratorA);
+    // Console.WriteLine("\nClient: ConcreteComponent decorato con A e poi B:");
+    // decoratorB.Operation();
+
+
+
+
+
+    /// <summary>Esercizio decorator</summary>
+
+    // Oggetto base con classe concreta (oggetto base senza decorazioni)
+    IBevanda bevanda = new Caffe();
+    bevanda.Descrizione();
+    bevanda.Costo();
+
+    //Decorazione base con concrete decorator ConLatte
+    IBevanda caffeLatte = new ConLatte(bevanda);
+    Console.WriteLine($"Descrizione latte: {caffeLatte.Descrizione()}");
+    Console.WriteLine($"Costo latte: {caffeLatte.Costo()}");
+
+    //Decorazione base con concrete decorator ConCioccolato
+    IBevanda caffeCioccolato = new ConCioccolato(bevanda);
+    Console.WriteLine($"Descrizione cioccolato: {caffeCioccolato.Descrizione()}");
+    Console.WriteLine($"Costo cioccolato: {caffeCioccolato.Costo()}");
+    
+    //Decorazione base con concrete decorator ConPanna
+    IBevanda caffePanna = new ConPanna(bevanda);
+    Console.WriteLine($"Descrizione panna: {caffePanna.Descrizione()}");
+    Console.WriteLine($"Costo panna: {caffePanna.Costo()}");
   }
 }
 
