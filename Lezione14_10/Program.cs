@@ -193,69 +193,71 @@ class Program
     // }
 
 
-    ConfigurazioneSistemaDP ModuloA = ConfigurazioneSistemaDP.GetInstanza();
-    ConfigurazioneSistemaDP ModuloB = ConfigurazioneSistemaDP.GetInstanza();
-
-    Console.WriteLine($"sono uguali? {object.ReferenceEquals(ModuloA, ModuloB)}");
 
 
-    
+    // ConfigurazioneSistemaDP ModuloA = ConfigurazioneSistemaDP.GetInstanza();
+    // ConfigurazioneSistemaDP ModuloB = ConfigurazioneSistemaDP.GetInstanza();
+    // var dispositivoA = DispositivoFactory.CreaDispositivo("computer");
+    // var dispositivoB = DispositivoFactory.CreaDispositivo("stampante");
 
-    bool continua = true;
-    int scelta;
+    // bool continua = true;
+    // int scelta;
 
-    while (continua)
-    {
-      Console.WriteLine($"-----Menu-----");
-      Console.WriteLine($"1. Inserire quale dispositivo creare.");
-      Console.WriteLine($"2. Stampa dettagli.");
-      Console.WriteLine($"3. Controlla se puntano alla stessa istanza");
-      Console.WriteLine($"4. Uscire.");
-      scelta = int.Parse(Console.ReadLine());
+    // while (continua)
+    // {
+    //   Console.WriteLine($"-----Menu-----");
+    //   Console.WriteLine($"1. Inserire quale dispositivo creare.");
+    //   Console.WriteLine($"2. Stampa dettagli.");
+    //   Console.WriteLine($"3. Controlla se puntano alla stessa istanza");
+    //   Console.WriteLine($"4. Uscire.");
+    //   scelta = int.Parse(Console.ReadLine());
 
-      switch (scelta)
-      {
-        case 1:
-          Console.WriteLine($"Quale dispositivo vuoi creare?\nComputer\nStampante");
-          string? sceltaDispositivo = Console.ReadLine().ToLower();
-          DispositivoFactory.CreaDispositivo(sceltaDispositivo);
-          switch (sceltaDispositivo)
-          {
-            case "computer":
-              Console.WriteLine($"Inserire chiave e valore: ");
-              string? sceltaChiaveComputer = Console.ReadLine().ToLower();
-              Console.WriteLine($"chiave inserita.");
-              string? sceltaValoreComputer = Console.ReadLine().ToLower();
-              Console.WriteLine($"valore inserito");
-              ModuloA.Imposta(sceltaChiaveComputer, sceltaValoreComputer);
-              break;
-            case "stampante":
-              Console.WriteLine($"Inserire chiave e valore: ");
-              string? sceltaChiaveStampante = Console.ReadLine().ToLower();
-              Console.WriteLine($"chiave inserita.");
-              string? sceltaValoreStampante = Console.ReadLine().ToLower();
-              Console.WriteLine($"valore inserito");
-              ModuloB.Imposta(sceltaChiaveStampante, sceltaValoreStampante);
-              break;
-          }
-          break;
-        case 2:
-          ModuloA.StampaTutte();
-          ModuloB.StampaTutte();
-          break;
-        case 3:
-          Console.WriteLine($"HashCode ModuloA: {ModuloA.GetHashCode()}");
-          Console.WriteLine($"HashCode ModuloB: {ModuloB.GetHashCode()}");
-          Console.WriteLine($"Sono uguali? {object.ReferenceEquals(ModuloA, ModuloB)}");
-          break;
-        case 4:
-          Console.WriteLine($"Arrivederci!");
-          continua = false;
-          break;
-        default:
-          Console.WriteLine("Scelta non valida");
-          break;
-      }
-    }
+    //   switch (scelta)
+    //   {
+    //     case 1:
+    //       Console.WriteLine($"Quale dispositivo vuoi creare?\nComputer\nStampante");
+    //       string? sceltaDispositivo = Console.ReadLine().ToLower();
+    //       DispositivoFactory.CreaDispositivo(sceltaDispositivo);
+    //       switch (sceltaDispositivo)
+    //       {
+    //         case "computer":
+    //           Console.WriteLine($"Inserire chiave e valore: ");
+    //           string? sceltaChiaveComputer = Console.ReadLine().ToLower();
+    //           Console.WriteLine($"chiave inserita.");
+    //           string? sceltaValoreComputer = Console.ReadLine().ToLower();
+    //           Console.WriteLine($"valore inserito");
+    //           ModuloA.Imposta(sceltaChiaveComputer, sceltaValoreComputer);
+    //           dispositivoA.Avvia();
+    //           dispositivoA.MostraTipo();
+    //           break;
+    //         case "stampante":
+    //           Console.WriteLine($"Inserire chiave e valore: ");
+    //           string? sceltaChiaveStampante = Console.ReadLine().ToLower();
+    //           Console.WriteLine($"chiave inserita.");
+    //           string? sceltaValoreStampante = Console.ReadLine().ToLower();
+    //           Console.WriteLine($"valore inserito");
+    //           ModuloB.Imposta(sceltaChiaveStampante, sceltaValoreStampante);
+    //           dispositivoB.Avvia();
+    //           dispositivoB.MostraTipo();
+    //           break;
+    //       }
+    //       break;
+    //     case 2:
+    //       ModuloA.StampaTutte();
+    //       break;
+    //     case 3:
+    //       Console.WriteLine($"HashCode ModuloA: {ModuloA.GetHashCode()}");
+    //       Console.WriteLine($"HashCode ModuloB: {ModuloB.GetHashCode()}");
+    //       Console.WriteLine($"Sono uguali? {object.ReferenceEquals(ModuloA, ModuloB)}");
+    //       break;
+    //     case 4:
+    //       Console.WriteLine($"Arrivederci!");
+    //       continua = false;
+    //       break;
+    //     default:
+    //       Console.WriteLine("Scelta non valida");
+    //       break;
+    //   }
+    // }
   }
 }
