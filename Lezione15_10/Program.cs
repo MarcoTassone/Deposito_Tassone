@@ -3,6 +3,7 @@
 
 using Lezione15_10.Mattina;
 using Lezione15_10.Mattina.Es_Observer;
+using Lezione15_10.Mattina.Es_ObserverDP;
 
 class Program
 {
@@ -32,45 +33,107 @@ class Program
 
     /// <summary>Esercizio Observer meteo</summary>
 
-    var subject = new CentroMeteo();
+    // var subject = new CentroMeteo();
+    // var observer = new CentroMeteo();
 
-    var displayConsole = new DisplayConsole();
-    var displayMobile = new DisplayMobile();
 
-    bool continua = true;
-    int scelta;
+    // var displayConsole = new DisplayConsole();
+    // var displayMobile = new DisplayMobile();
 
-    while (continua)
+    // bool continua = true;
+    // bool continuaObserver = true;
+    // int scelta;
+    // int sceltaObserver;
+
+    // while (continuaObserver)
+    // {
+    //   Console.WriteLine($"-----Menu Observer-----");
+    //   Console.WriteLine($"1. Aggiungi observer.");
+    //   Console.WriteLine($"2. Rimuovi observer.");
+    //   Console.WriteLine($"3. Esci.");
+    //   sceltaObserver = Convert.ToInt32(Console.ReadLine());
+
+    //   switch (sceltaObserver)
+    //   {
+    //     case 1:
+    //       Console.WriteLine($"Inserisci il nome dell'observer: ");
+    //       string? observerName = Console.ReadLine();
+    //       subject.;
+    //       break;
+    //     case 2:
+    //       Console.WriteLine($"Inserisci il nome dell'observer da rimuovere: ");
+    //       observerName = Console.ReadLine();
+    //       subject.Rimuovi(observerName);
+    //       break;
+    //     case 3:
+    //       continuaObserver = false;
+    //       break;
+    //     default:
+    //       Console.WriteLine($"Scelta non valida.");
+    //       break;
+    //   }
+    // }
+
+    // while (continua)
+    // {
+    //   Console.WriteLine($"-----Menu Meteo-----");
+    //   Console.WriteLine($"1. Inserisci meteo.");
+    //   Console.WriteLine($"2. Aggiorna observer.");
+    //   Console.WriteLine($"3. Esci.");
+    //   scelta = Convert.ToInt32(Console.ReadLine());
+
+    //   switch (scelta)
+    //   {
+    //     case 1:
+    //       Console.WriteLine($"Inserisci il meteo: ");
+    //       string? meteo = Console.ReadLine();
+    //       displayConsole.Aggiorna(meteo);
+    //       displayMobile.Aggiorna(meteo);
+    //       break;
+    //     case 2:
+    //       Console.WriteLine($"Aggiorna meteo.");
+    //       string? meteoAggiornato = Console.ReadLine();
+    //       subject.AggiornaMeteo(meteoAggiornato);
+    //       displayConsole.Aggiorna(meteoAggiornato);
+    //       displayMobile.Aggiorna(meteoAggiornato);
+    //       break;
+    //     case 3:
+    //       Console.WriteLine($"Arrivederci!");
+    //       continua = false;
+    //       break;
+    //     default:
+    //       Console.WriteLine($"Scelta non valida.");
+    //       break;
+    //   }
+    // }
+
+
+    /// <summary>Esercizio observer + singleton</summary>
+
+
+    NewsAgency newsAgency = NewsAgency.GetInstance();
+
+    INewsSubscriber mobileSubcriber = new MobileApp();
+    INewsSubscriber emailSubcriber = new EmailClient();
+
+    newsAgency.AddSubscriber(mobileSubcriber);
+    newsAgency.AddSubscriber(emailSubcriber);
+
+    Console.WriteLine($"Inserisci il titolo della notizia: ");
+    string? title = Console.ReadLine();
+    newsAgency.Notify(title);
+    Console.WriteLine($"Ci sono altre notizie? (s/n)");
+    string? risposta = Console.ReadLine().ToLower();
+    if (risposta == "n")
     {
-      Console.WriteLine($"-----Menu Meteo-----");
-      Console.WriteLine($"1. Inserisci meteo.");
-      Console.WriteLine($"2. Aggiorna observer.");
-      Console.WriteLine($"3. Esci.");
-      scelta = Convert.ToInt32(Console.ReadLine());
-
-      switch (scelta)
-      {
-        case 1:
-          Console.WriteLine($"Inserisci il meteo: ");
-          string? meteo = Console.ReadLine();
-          displayConsole.Aggiorna(meteo);
-          displayMobile.Aggiorna(meteo);
-          break;
-        case 2:
-          Console.WriteLine($"Aggiorna meteo.");
-          string? meteoAggiornato = Console.ReadLine();
-          subject.AggiornaMeteo(meteoAggiornato);
-          displayConsole.Aggiorna(meteoAggiornato);
-          displayMobile.Aggiorna(meteoAggiornato);
-          break;
-        case 3:
-          Console.WriteLine($"Arrivederci!");
-          continua = false;
-          break;
-        default:
-          Console.WriteLine($"Scelta non valida.");
-          break;
-      }
+      Console.WriteLine($"Notizie terminate.");
+    }
+    else
+    {
+      Console.WriteLine($"Inserisci nuova notizia: ");
+      string? nuoveNotizie = Console.ReadLine();
+      newsAgency.Notify(nuoveNotizie);
     }
   }
 }
+

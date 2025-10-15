@@ -24,6 +24,7 @@ namespace Lezione15_10.Mattina.Es_Observer
         public void AggiornaMeteo(string dati)
         {
             Console.WriteLine($"Meteo aggiornato.");
+            Notifica(dati);
         }
 
         public void Registra(IObserver observer)
