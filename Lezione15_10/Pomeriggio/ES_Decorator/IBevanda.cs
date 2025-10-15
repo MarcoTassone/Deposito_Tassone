@@ -47,21 +47,21 @@ namespace Lezione15_10.Pomeriggio.ES_Decorator
     {
         public ConLatte(IBevanda bevanda) : base(bevanda) { }
         public override string Descrizione() => $"[ConLatte] {_bevanda.Descrizione()}, latte";
-        public override double Costo() => _bevanda.Costo() + 1.50;
+        public override double Costo() => _bevanda.Costo() + 0.50;
     }
 
     public class ConCioccolato : DecoratoreBevanda
     {
         public ConCioccolato(IBevanda bevanda) : base(bevanda) { }
         public override string Descrizione() => $"[ConCioccolato] {_bevanda.Descrizione()}, cioccolato";
-        public override double Costo() => _bevanda.Costo() + 1.20;
+        public override double Costo() => _bevanda.Costo() + 0.20;
     }
 
     public class ConPanna : DecoratoreBevanda
     {
         public ConPanna(IBevanda bevanda) : base(bevanda) { }
         public override string Descrizione() => $"[ConPanna] {_bevanda.Descrizione()}, panna";
-        public override double Costo() => _bevanda.Costo() + 1.30;
+        public override double Costo() => _bevanda.Costo() + 0.30;
     }
     #endregion
 }

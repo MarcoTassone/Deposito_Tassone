@@ -213,24 +213,72 @@ class Program
     /// <summary>Esercizio decorator</summary>
 
     // Oggetto base con classe concreta (oggetto base senza decorazioni)
-    IBevanda bevanda = new Caffe();
-    bevanda.Descrizione();
-    bevanda.Costo();
+    // IBevanda bevanda = new Caffe();
+    // bevanda.Descrizione();
+    // bevanda.Costo();
 
-    //Decorazione base con concrete decorator ConLatte
-    IBevanda caffeLatte = new ConLatte(bevanda);
-    Console.WriteLine($"Descrizione latte: {caffeLatte.Descrizione()}");
-    Console.WriteLine($"Costo latte: {caffeLatte.Costo()}");
+    // //Decorazione base con concrete decorator ConLatte
+    // IBevanda caffeLatte = new ConLatte(bevanda);
+    // Console.WriteLine($"Descrizione latte: {caffeLatte.Descrizione()}");
+    // Console.WriteLine($"Costo latte: {caffeLatte.Costo()}");
 
-    //Decorazione base con concrete decorator ConCioccolato
-    IBevanda caffeCioccolato = new ConCioccolato(bevanda);
-    Console.WriteLine($"Descrizione cioccolato: {caffeCioccolato.Descrizione()}");
-    Console.WriteLine($"Costo cioccolato: {caffeCioccolato.Costo()}");
+    // //Decorazione base con concrete decorator ConCioccolato
+    // IBevanda caffeCioccolato = new ConCioccolato(bevanda);
+    // Console.WriteLine($"Descrizione cioccolato: {caffeCioccolato.Descrizione()}");
+    // Console.WriteLine($"Costo cioccolato: {caffeCioccolato.Costo()}");
+
+    // //Decorazione base con concrete decorator ConPanna
+    // IBevanda caffePanna = new ConPanna(bevanda);
+    // Console.WriteLine($"Descrizione panna: {caffePanna.Descrizione()}");
+    // Console.WriteLine($"Costo panna: {caffePanna.Costo()}");
+
+
+    /// <summary>Esercizio decorator con factory</summary>
+
+
+    ITorta torta = TortaFactory.CreaTortaBase(" ");
+    torta.Descrizione();
     
-    //Decorazione base con concrete decorator ConPanna
-    IBevanda caffePanna = new ConPanna(bevanda);
-    Console.WriteLine($"Descrizione panna: {caffePanna.Descrizione()}");
-    Console.WriteLine($"Costo panna: {caffePanna.Costo()}");
+    bool continua = true;
+    int scelta;
+
+    while (continua)
+    {
+      Console.WriteLine($"-----Menu Torte-----");
+      Console.WriteLine($"1. Crea Torta.");
+      scelta = Convert.ToInt32(Console.ReadLine());
+
+      switch (scelta)
+      {
+        case 1:
+          Console.WriteLine($"Inserisci quale torta vuoi usare come base:\nCioccolato\nVaniglia\nFrutta");
+          string? sceltaTortaBase = Console.ReadLine().ToLower();
+          if (sceltaTortaBase == "cioccolato")
+          {
+            torta = TortaFactory.CreaTortaBase(sceltaTortaBase);
+            Console.WriteLine($"Hai scleto come base la torta al cioccolato.");
+
+          }
+          else if (sceltaTortaBase == "vaniglia")
+          {
+            torta = TortaFactory.CreaTortaBase(sceltaTortaBase);
+          }
+          else if (sceltaTortaBase == "frutta")
+          {
+            torta = TortaFactory.CreaTortaBase(sceltaTortaBase);
+          }
+          else
+          {
+            Console.WriteLine("Tipo di torta non valido.");
+          }
+          continue;
+
+
+        default:
+          Console.WriteLine($"Scelta non valida.");
+          break;
+      }
+    }
   }
 }
 
