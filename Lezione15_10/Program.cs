@@ -236,9 +236,8 @@ class Program
     /// <summary>Esercizio decorator con factory</summary>
 
 
-    ITorta torta = TortaFactory.CreaTortaBase(" ");
-    torta.Descrizione();
-    
+    ITorta torta = TortaFactory.CreaTortaBase("");
+
     bool continua = true;
     int scelta;
 
@@ -272,13 +271,26 @@ class Program
             Console.WriteLine("Tipo di torta non valido.");
           }
           continue;
-
-
-        default:
-          Console.WriteLine($"Scelta non valida.");
-          break;
       }
+
+      bool aggiungiDecorazioni = true;
+
+      while (aggiungiDecorazioni)
+      {
+        Console.WriteLine($"Vuoi aggiungere una decorazione? (s/n)");
+        string? risposta = Console.ReadLine().ToLower();
+
+        Console.WriteLine($"-----Menu Decorazioni-----");
+        Console.WriteLine($"Text");
+        
+        
+      }
+
+
+
+
     }
   }
 }
+
 

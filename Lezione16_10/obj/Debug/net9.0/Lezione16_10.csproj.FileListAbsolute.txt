@@ -1,0 +1,15 @@
+C:\Users\Utente\Desktop\Marco\C#\Deposito_Tassone\Lezione16_10\bin\Debug\net9.0\Lezione16_10.exe
+C:\Users\Utente\Desktop\Marco\C#\Deposito_Tassone\Lezione16_10\bin\Debug\net9.0\Lezione16_10.deps.json
+C:\Users\Utente\Desktop\Marco\C#\Deposito_Tassone\Lezione16_10\bin\Debug\net9.0\Lezione16_10.runtimeconfig.json
+C:\Users\Utente\Desktop\Marco\C#\Deposito_Tassone\Lezione16_10\bin\Debug\net9.0\Lezione16_10.dll
+C:\Users\Utente\Desktop\Marco\C#\Deposito_Tassone\Lezione16_10\bin\Debug\net9.0\Lezione16_10.pdb
+C:\Users\Utente\Desktop\Marco\C#\Deposito_Tassone\Lezione16_10\obj\Debug\net9.0\Lezione16_10.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Utente\Desktop\Marco\C#\Deposito_Tassone\Lezione16_10\obj\Debug\net9.0\Lezione16_10.AssemblyInfoInputs.cache
+C:\Users\Utente\Desktop\Marco\C#\Deposito_Tassone\Lezione16_10\obj\Debug\net9.0\Lezione16_10.AssemblyInfo.cs
+C:\Users\Utente\Desktop\Marco\C#\Deposito_Tassone\Lezione16_10\obj\Debug\net9.0\Lezione16_10.csproj.CoreCompileInputs.cache
+C:\Users\Utente\Desktop\Marco\C#\Deposito_Tassone\Lezione16_10\obj\Debug\net9.0\Lezione16_10.sourcelink.json
+C:\Users\Utente\Desktop\Marco\C#\Deposito_Tassone\Lezione16_10\obj\Debug\net9.0\Lezione16_10.dll
+C:\Users\Utente\Desktop\Marco\C#\Deposito_Tassone\Lezione16_10\obj\Debug\net9.0\refint\Lezione16_10.dll
+C:\Users\Utente\Desktop\Marco\C#\Deposito_Tassone\Lezione16_10\obj\Debug\net9.0\Lezione16_10.pdb
+C:\Users\Utente\Desktop\Marco\C#\Deposito_Tassone\Lezione16_10\obj\Debug\net9.0\Lezione16_10.genruntimeconfig.cache
+C:\Users\Utente\Desktop\Marco\C#\Deposito_Tassone\Lezione16_10\obj\Debug\net9.0\ref\Lezione16_10.dll

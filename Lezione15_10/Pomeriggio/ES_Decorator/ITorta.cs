@@ -41,9 +41,29 @@ namespace Lezione15_10.Pomeriggio.ES_Decorator
         }
     }
 
-    public class ConPannaTorta
+    public class ConPannaTorta : DecoratoreTorta
     {
-        
+        public ConPannaTorta(ITorta baseTorta) : base(baseTorta)
+        {
+            Console.WriteLine($"{baseTorta.Descrizione()} + panna");
+            
+        }
+    }
+
+    public class ConFragoleTorta : DecoratoreTorta
+    {
+        public ConFragoleTorta(ITorta baseTorta) : base(baseTorta)
+        {
+            Console.WriteLine($"{baseTorta.Descrizione()} + fragole");
+        }
+    }
+    
+    public class ConGlassaTorta : DecoratoreTorta
+    {
+        public ConGlassaTorta(ITorta baseTorta) : base(baseTorta)
+        {
+            Console.WriteLine($"{baseTorta.Descrizione()} + glassa");
+        }
     }
 
     public static class TortaFactory
