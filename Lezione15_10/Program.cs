@@ -254,7 +254,7 @@ class Program
           string? sceltaTortaBase = Console.ReadLine().ToLower();
           if (sceltaTortaBase == "cioccolato")
           {
-            torta = TortaFactory.CreaTortaBase(sceltaTortaBase);
+            torta = new TortaCioccolato();
             Console.WriteLine($"Hai scleto come base la torta al cioccolato.");
 
           }
