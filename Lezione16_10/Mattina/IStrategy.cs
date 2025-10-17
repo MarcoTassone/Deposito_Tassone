@@ -8,7 +8,7 @@ namespace Lezione16_10.Mattina
     public interface IStrategy
     {
         int DoOperation(int a, int b);
-}
+    }
 
 // 2. ConcreteStrategyAdd: implementa la somma
 public class ConcreteStrategyAdd : IStrategy

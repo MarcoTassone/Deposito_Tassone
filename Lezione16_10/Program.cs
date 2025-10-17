@@ -92,73 +92,73 @@ class Program
     //   }
     // }
 
-    var strategiaPreparazione = new Chef();
+    // var strategiaPreparazione = new Chef();
 
-    bool continua = true;
-    string? scelta;
+    // bool continua = true;
+    // string? scelta;
 
-    while (continua)
-    {
-      Console.WriteLine($"----Menu preparazione----");
-      Console.WriteLine($"1. Pizza");
-      Console.WriteLine($"2. Hamburger");
-      Console.WriteLine($"2. Insalata");
-      Console.WriteLine($"3. Esci");
-      scelta = Console.ReadLine();
+    // while (continua)
+    // {
+    //   Console.WriteLine($"----Menu preparazione----");
+    //   Console.WriteLine($"1. Pizza");
+    //   Console.WriteLine($"2. Hamburger");
+    //   Console.WriteLine($"2. Insalata");
+    //   Console.WriteLine($"3. Esci");
+    //   scelta = Console.ReadLine();
 
-      switch (scelta)
-      {
-        case "pizza":
-          IPiatto piattoPizza = PiattoFactory.Crea(scelta); //sbagliato
-          break;
-        case "hamburger":
-          IPiatto piattoHamburger = PiattoFactory.Crea(scelta);
-          break;
-        case "insalata":
-          IPiatto piattoInsalata = PiattoFactory.Crea(scelta);
-          break;
-        case "esci":
-          Console.WriteLine($"Arrivederci!");
-          continua = false;
-          continue;
-      }
+    //   switch (scelta)
+    //   {
+    //     case "pizza":
+    //       IPiatto piattoPizza = PiattoFactory.Crea(scelta); //sbagliato
+    //       break;
+    //     case "hamburger":
+    //       IPiatto piattoHamburger = PiattoFactory.Crea(scelta);
+    //       break;
+    //     case "insalata":
+    //       IPiatto piattoInsalata = PiattoFactory.Crea(scelta);
+    //       break;
+    //     case "esci":
+    //       Console.WriteLine($"Arrivederci!");
+    //       continua = false;
+    //       continue;
+    //   }
 
-      bool ingredienti = true;
+    //   bool ingredienti = true;
 
-      while (ingredienti)
-      {
-        Console.WriteLine($"Vuoi aggiungere un ingrediente? (s/n)");
-        string? risposta = Console.ReadLine();
-        if (risposta == "n")
-        {
-          ingredienti = false;
-        } else
-        {
-          Console.WriteLine($"1. Formaggio");
-          Console.WriteLine($"2. Pomodori");
-          Console.WriteLine($"2. Maionese");
-          Console.WriteLine($"3. Esci");
-          int sceltaIngredienti = Convert.ToInt32(Console.ReadLine());
+    //   while (ingredienti)
+    //   {
+    //     Console.WriteLine($"Vuoi aggiungere un ingrediente? (s/n)");
+    //     string? risposta = Console.ReadLine();
+    //     if (risposta == "n")
+    //     {
+    //       ingredienti = false;
+    //     } else
+    //     {
+    //       Console.WriteLine($"1. Formaggio");
+    //       Console.WriteLine($"2. Pomodori");
+    //       Console.WriteLine($"2. Maionese");
+    //       Console.WriteLine($"3. Esci");
+    //       int sceltaIngredienti = Convert.ToInt32(Console.ReadLine());
 
-          switch (sceltaIngredienti)
-          {
-            case 1:
+    //       switch (sceltaIngredienti)
+    //       {
+    //         case 1:
               
-              break;
-            case 2:
+    //           break;
+    //         case 2:
               
-              break;
-            case 3:
+    //           break;
+    //         case 3:
               
-              break;
-            case 4:
-              Console.WriteLine($"Arrivederci!");
-              continua = false;
-              continue;
-          }
-        }
+    //           break;
+    //         case 4:
+    //           Console.WriteLine($"Arrivederci!");
+    //           continua = false;
+    //           continue;
+    //       }
+    //     }
         
-      }
-    }
+    //   }
+    // }
   }
 }

@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Utente\\Desktop\\Marco\\C#\\Deposito_Tassone\\Lezione09_10\\Lezione09_10.csproj",
+      "projectUniqueName": "C:\\Users\\Utente\\Desktop\\Marco\\C#\\Deposito_Tassone\\lezione09_10\\Lezione09_10.csproj",
       "projectName": "Lezione09_10",
-      "projectPath": "C:\\Users\\Utente\\Desktop\\Marco\\C#\\Deposito_Tassone\\Lezione09_10\\Lezione09_10.csproj",
+      "projectPath": "C:\\Users\\Utente\\Desktop\\Marco\\C#\\Deposito_Tassone\\lezione09_10\\Lezione09_10.csproj",
       "packagesPath": "C:\\Users\\Utente\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Utente\\Desktop\\Marco\\C#\\Deposito_Tassone\\Lezione09_10\\obj\\",
+      "outputPath": "C:\\Users\\Utente\\Desktop\\Marco\\C#\\Deposito_Tassone\\lezione09_10\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Utente\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -65,7 +65,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.306/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
