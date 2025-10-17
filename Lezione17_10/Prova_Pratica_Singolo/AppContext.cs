@@ -170,7 +170,6 @@ namespace Lezione17_10.Prova_Pratica_Singolo
     }
     #endregion
 
-
     #region Classi concrete strategy
     public class StrategyPrezziStandard : IStrategyPrezzi
     {
@@ -188,7 +187,6 @@ namespace Lezione17_10.Prova_Pratica_Singolo
         }
     }
     #endregion
-
 
     #region Observer + classi concrete
     public class Notifiche
