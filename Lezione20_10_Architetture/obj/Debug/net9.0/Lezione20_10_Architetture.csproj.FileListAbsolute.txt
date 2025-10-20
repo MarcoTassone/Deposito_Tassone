@@ -1,0 +1,15 @@
+C:\Users\Utente\Desktop\Marco\C#\Deposito_Tassone\Lezione20_10_Architetture\bin\Debug\net9.0\Lezione20_10_Architetture.exe
+C:\Users\Utente\Desktop\Marco\C#\Deposito_Tassone\Lezione20_10_Architetture\bin\Debug\net9.0\Lezione20_10_Architetture.deps.json
+C:\Users\Utente\Desktop\Marco\C#\Deposito_Tassone\Lezione20_10_Architetture\bin\Debug\net9.0\Lezione20_10_Architetture.runtimeconfig.json
+C:\Users\Utente\Desktop\Marco\C#\Deposito_Tassone\Lezione20_10_Architetture\bin\Debug\net9.0\Lezione20_10_Architetture.dll
+C:\Users\Utente\Desktop\Marco\C#\Deposito_Tassone\Lezione20_10_Architetture\bin\Debug\net9.0\Lezione20_10_Architetture.pdb
+C:\Users\Utente\Desktop\Marco\C#\Deposito_Tassone\Lezione20_10_Architetture\obj\Debug\net9.0\Lezione20_10_Architetture.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Utente\Desktop\Marco\C#\Deposito_Tassone\Lezione20_10_Architetture\obj\Debug\net9.0\Lezione20_10_Architetture.AssemblyInfoInputs.cache
+C:\Users\Utente\Desktop\Marco\C#\Deposito_Tassone\Lezione20_10_Architetture\obj\Debug\net9.0\Lezione20_10_Architetture.AssemblyInfo.cs
+C:\Users\Utente\Desktop\Marco\C#\Deposito_Tassone\Lezione20_10_Architetture\obj\Debug\net9.0\Lezione20_10_Architetture.csproj.CoreCompileInputs.cache
+C:\Users\Utente\Desktop\Marco\C#\Deposito_Tassone\Lezione20_10_Architetture\obj\Debug\net9.0\Lezione20_10_Architetture.sourcelink.json
+C:\Users\Utente\Desktop\Marco\C#\Deposito_Tassone\Lezione20_10_Architetture\obj\Debug\net9.0\Lezione20_10_Architetture.dll
+C:\Users\Utente\Desktop\Marco\C#\Deposito_Tassone\Lezione20_10_Architetture\obj\Debug\net9.0\refint\Lezione20_10_Architetture.dll
+C:\Users\Utente\Desktop\Marco\C#\Deposito_Tassone\Lezione20_10_Architetture\obj\Debug\net9.0\Lezione20_10_Architetture.pdb
+C:\Users\Utente\Desktop\Marco\C#\Deposito_Tassone\Lezione20_10_Architetture\obj\Debug\net9.0\Lezione20_10_Architetture.genruntimeconfig.cache
+C:\Users\Utente\Desktop\Marco\C#\Deposito_Tassone\Lezione20_10_Architetture\obj\Debug\net9.0\ref\Lezione20_10_Architetture.dll
