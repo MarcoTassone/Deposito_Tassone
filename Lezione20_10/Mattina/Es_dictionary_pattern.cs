@@ -108,7 +108,7 @@ namespace Lezione20_10.Mattina
 
         private readonly List<IObserver> observers = new List<IObserver>();
 
-        public ICalcoloInteressi? CalcoloInteressi { get; set; }
+        public ICalcoloInteressi? CalcoloInteressi { get; set; } //in realtà ho dimenticato di usarlo
 
         private int _nextIdCliente = 1;
         private int _nextIdConto = 100;

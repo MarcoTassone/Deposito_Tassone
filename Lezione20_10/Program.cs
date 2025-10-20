@@ -22,6 +22,8 @@ class Program
       Console.WriteLine($"4. Preleva.");
       Console.WriteLine($"5. Trasferisci.");
       Console.WriteLine($"6. Mostra i saldi.");
+      Console.WriteLine($"7. Mostra le operazioni.");
+      Console.WriteLine($"8. Esci.");
       scelta = Convert.ToInt32(Console.ReadLine());
 
       switch (scelta)
@@ -66,6 +68,15 @@ class Program
           break;
         case 6:
           ServizioBancario.MostraSaldi();
+          break;
+        case 7:
+          Console.WriteLine($"inserire l'id del conto: ");
+          idConto = Convert.ToInt32(Console.ReadLine());
+          ServizioBancario.MostraOperazioni(idConto);
+          break;
+        case 8:
+          Console.WriteLine("Arrivederci!");
+          continua = false;
           break;
       }
     }
