@@ -91,8 +91,66 @@ namespace Lezione20_10.Mattina
     }
     #endregion
 
-    public static class Conto
+    #region Cliente
+    public class Cliente
     {
-        
+        public int Id { get; set; }
+        public string? Nome { get; set; }
+        public string? Cognome { get; set; }
+        public string? Email { get; set; }
     }
+    #endregion
+
+
+    #region Factory
+    public abstract class Conto
+    {
+        public int Id { get; }
+        public decimal Saldo { get; protected set; }
+        public string? Tipo { get; set; }
+        public int IdCliente { get; }
+        public ICalcoloInteressi? CalcoloInteressi { get; set; }
+
+        public Conto(int id, string? tipo, int idCliente, decimal saldo = 0)
+        {
+            Id = id;
+            Saldo = saldo;
+            Tipo = tipo;
+            IdCliente = idCliente;
+        }
+
+        public void Deposita(decimal importo)
+        {
+            Saldo += importo;
+        }
+
+        public bool Preleva(decimal importo)
+        {
+            if (Saldo < importo) return false;
+            Saldo -= importo;
+            return true;
+        }
+
+        public void ApplicaInteressi(decimal importo)
+        {
+            Saldo += CalcoloInteressi.CalcolaInteressi(importo);
+        }
+    }
+
+    public class ContoBase : Conto
+    {
+        public ContoBase(int id, int idCliente) : base(id, "Conto base", idCliente) { }
+    }
+
+    public class ContoPremium : Conto
+    {
+        public ContoPremium(int id, int idCliente) : base(id, "Conto premium", idCliente) { }
+    }
+    
+    
+    public class ContoStudente : Conto
+    {
+        public ContoStudente(int id, int idCliente) : base(id, "Conto studente", idCliente) { }
+    }
+    #endregion
 }
