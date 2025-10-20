@@ -101,7 +101,6 @@ namespace Lezione20_10.Mattina
     }
     #endregion
 
-
     #region Factory
     public abstract class Conto
     {
@@ -146,11 +145,68 @@ namespace Lezione20_10.Mattina
     {
         public ContoPremium(int id, int idCliente) : base(id, "Conto premium", idCliente) { }
     }
-    
-    
+
+
     public class ContoStudente : Conto
     {
         public ContoStudente(int id, int idCliente) : base(id, "Conto studente", idCliente) { }
+    }
+
+    public static class ContoFactory
+    {
+        public static Conto Crea(string tipo, int idCliente)
+        {
+            switch (tipo.ToLower())
+            {
+                case "base":
+                    return new ContoBase(BankContext.GetIstance().Conti.Count + 1, idCliente);
+                case "premium":
+                    return new ContoPremium(BankContext.GetIstance().Conti.Count + 1, idCliente);
+                case "studente":
+                    return new ContoStudente(BankContext.GetIstance().Conti.Count + 1, idCliente);
+                default:
+                    return null;
+            }
+        }
+    }
+    #endregion
+
+    #region Operazioni
+    public class Operazione
+    {
+        public DateTime Date { get; set; } = DateTime.Now;
+        public string? TipoOperazione { get; set; }
+        public decimal Importo { get; set; }
+    }
+    #endregion
+
+    #region Servizio bancario
+    public class ServizioBancario
+    {
+        private static BankContext _bankContext = BankContext.GetIstance();
+
+        public static Cliente CreaCliente(string nome, string email)
+        {
+            var cliente = new Cliente
+            {
+                Id = _bankContext.Clienti.Count + 1,
+                Nome = nome,
+                Email = email
+            };
+            _bankContext.Clienti.Add(cliente.Id, cliente);
+            _bankContext.Notify($"Cliente: {nome}, Id: {cliente.Id}");
+            return cliente;
+        }
+        
+
+        public static Conto CreaConto(int idCliente, string tipo)
+        {
+            var conto = ContoFactory.Crea(tipo, idCliente);
+            _bankContext.Conti.Add(conto.Id, conto);
+            _bankContext.Operazioni[conto.Id] = new List<Operazione>();
+            _bankContext.Notify($"Conto: {conto.Tipo}, Id: {conto.Id} per cliente: {idCliente}");
+            return conto;
+        }
     }
     #endregion
 }
