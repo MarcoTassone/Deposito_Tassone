@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Lezione21_10.Pomeriggio.Esempio_MethodInjection;
 using static Lezione21_10.Pomeriggio.Notifier_con_DI_e_Enum.EmailNotifierDIEnum;
 
 namespace Lezione21_10.Pomeriggio.Notifier_con_DI_e_Enum
@@ -70,15 +71,16 @@ namespace Lezione21_10.Pomeriggio.Notifier_con_DI_e_Enum
     public class MessaggioService
     {
         private readonly INotifierDIEnum _notifierDIEnum;
+    private INotifier notifier;
 
-        public MessaggioService(INotifierDIEnum notifierDIEnum)
+    public MessaggioService(INotifierDIEnum notifierDIEnum)
         {
             _notifierDIEnum = notifierDIEnum;
         }
 
-        public void Invia(INotifierDIEnum notifierDIEnum, string messaggio)
+    public void Invia(INotifierDIEnum notifierDIEnum, string messaggio)
         {
-            _notifierDIEnum.Invia(messaggio);
+            notifierDIEnum.Invia(messaggio);
         }
     }
 }

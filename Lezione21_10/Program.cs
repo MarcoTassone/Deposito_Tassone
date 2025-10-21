@@ -90,7 +90,8 @@ class Program
 
     #region Es_SMSNotifier
     // INotifierSMS notifierSMS= new SMSNotifier();
-    // var service = new AlertService();
+    // ILoggerSMS loggerSMS = new LoggerSMS();
+    // var service = new AlertService(loggerSMS);
     // service.SendAlert("Nuovo messaggio da...", notifierSMS);
     #endregion
 
@@ -219,22 +220,45 @@ class Program
 
     #endregion
 
-    #region Notifier_con_DI_e_Factory
+    #region Notifier_con_DI_e_Enum
+    while (true)
+    {
+      Console.WriteLine("\n===== SISTEMA DI NOTIFICHE =====");
+      Console.WriteLine("1. Email");
+      Console.WriteLine("2. SMS");
+      Console.WriteLine("3. Push");
+      Console.WriteLine("0. Esci");
+      Console.Write("Scegli tipo notifica: ");
 
-    Console.WriteLine("Seleziona il tipo di notifica (Email, Sms, Push):");
-        string? input = Console.ReadLine();
+      string scelta = Console.ReadLine()!;
+      if (scelta == "0") break;
 
-        if (!Enum.TryParse(input, ignoreCase: true, out TipoNotifica tipoNotifica))
+      try
+      {
+        TipoNotifica tipo = scelta switch
         {
-            Console.WriteLine("Tipo di notifica non valido.");
-            return;
-        }
+          "1" => TipoNotifica.Email,
+          "2" => TipoNotifica.Sms,
+          "3" => TipoNotifica.Push,
+          _ => throw new Exception("Scelta non valida")
+        };
 
-        // Factory
-        INotifierDIEnum notifier = NotifierFactory.CreaNotifier(tipoNotifica);
+        INotifierDIEnum notifier = NotifierFactory.CreaNotifier(tipo);
         var service = new MessaggioService(notifier);
-        service.Invia(notifier, "ciao!");
-    
-    #endregion
+
+        Console.Write("Inserisci il messaggio da inviare: ");
+        string messaggio = Console.ReadLine()!;
+
+        service.Invia(notifier, messaggio);
+      }
+      catch (Exception ex)
+      {
+        Console.WriteLine($"Errore: {ex.Message}");
+      }
+    }
+
+    Console.WriteLine("Programma terminato.");
+  #endregion
   }
 }
+

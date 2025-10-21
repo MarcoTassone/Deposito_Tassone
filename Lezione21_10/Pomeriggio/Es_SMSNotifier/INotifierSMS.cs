@@ -10,6 +10,11 @@ namespace Lezione21_10.Pomeriggio.Es_SMSNotifier
         void Notify(string message);
     }
 
+    public interface ILoggerSMS
+    {
+        void Log(string message);
+    }
+
     public class SMSNotifier : INotifierSMS
     {
         public void Notify(string message)
@@ -18,43 +23,27 @@ namespace Lezione21_10.Pomeriggio.Es_SMSNotifier
         }
     }
 
-    public class EmailNotifierSMS : INotifierSMS
+    public class LoggerSMS : ILoggerSMS
     {
-        public void Notify(string message)
+        public void Log(string message)
         {
-            Console.WriteLine($"Invio email: {message}");
+            Console.WriteLine($"Log: {message}");
         }
     }
 
     public class AlertService
     {
-        private readonly SMSNotifier _smsNotifier;
-        public SMSNotifier SMSNotifier { get; set; }
+        private readonly ILoggerSMS _loggerSMS;
 
-        public void SendEmail(string text)
+        public AlertService(ILoggerSMS loggerSMS)
         {
-            if (SMSNotifier == null)
-            {
-                Console.WriteLine($"Invio Email non riuscito.");
-                return;
-            }
-            SMSNotifier.Notify(text);
-        }
-
-        public AlertService(SMSNotifier smsNotifier)
-        {
-            _smsNotifier = smsNotifier;
-        }
-
-
-        public void EmailAlert(string emailMessage)
-        {
-            SMSNotifier.Notify(emailMessage);
+            _loggerSMS = loggerSMS;
         }
 
         public void SendAlert(string message, INotifierSMS notifierSMS)
         {
             notifierSMS.Notify(message);
+            _loggerSMS.Log(DateTime.Now.ToString(""));
         }
     }
 }
