@@ -219,7 +219,7 @@ class Program
 
     #endregion
 
-    #region
+    #region Notifier_con_DI_e_Factory
 
     Console.WriteLine("Seleziona il tipo di notifica (Email, Sms, Push):");
         string? input = Console.ReadLine();
