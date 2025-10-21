@@ -6,9 +6,11 @@ using Lezione21_10.Mattina.Es_Print;
 using Lezione21_10.Mattina.Es_StorageService;
 using Lezione21_10.Mattina.Esempio_DatabaseService;
 using Lezione21_10.Pomeriggio.Es_DataExporter;
+using Lezione21_10.Pomeriggio.Es_GiorniSettimana;
 using Lezione21_10.Pomeriggio.Es_SMSNotifier;
 using Lezione21_10.Pomeriggio.Es_TipoTransazione;
 using Lezione21_10.Pomeriggio.Esempio_MethodInjection;
+using Lezione21_10.Pomeriggio.Notifier_con_DI_e_Enum;
 
 class Program
 {
@@ -114,43 +116,125 @@ class Program
     // }
     #endregion
 
-    #region Esempio_Enum
-    var transazione = new Transazione();
+    #region Es_TipoTransazione
+    // var transazione = new Transazione();
 
-    bool continua = true;
-    int scelta;
+    // bool continua = true;
+    // int scelta;
 
-    while (continua)
-    {
-      Console.WriteLine($"--------Benvenuto!--------");
-      Console.WriteLine($"Scegli il tipo di transazione da effettuare:");
-      Console.WriteLine($"1 - Acquisto");
-      Console.WriteLine($"2 - Rimborso");
-      Console.WriteLine($"3 - Trasferimento");
-      Console.WriteLine($"4 - Esci");
-      scelta = Convert.ToInt32(Console.ReadLine());
+    // while (continua)
+    // {
+    //   Console.WriteLine($"--------Benvenuto!--------");
+    //   Console.WriteLine($"Scegli il tipo di transazione da effettuare:");
+    //   Console.WriteLine($"1 - Acquisto");
+    //   Console.WriteLine($"2 - Rimborso");
+    //   Console.WriteLine($"3 - Trasferimento");
+    //   Console.WriteLine($"4 - Esci");
+    //   scelta = Convert.ToInt32(Console.ReadLine());
 
-      switch (scelta)
-      {
-        case 1:
-          transazione.tipoTransazione = Transazione.TipoTransazione.Acquisto;
-          break;
-        case 2:
-          transazione.tipoTransazione = Transazione.TipoTransazione.Rimborso;
-          break;
-        case 3:
-          transazione.tipoTransazione = Transazione.TipoTransazione.Trasferimento;
-          break;
-        case 4:
-          continua = false;
-          break;
-      }
+    //   if (scelta == 4) break;
 
-      Console.Write("Inserisci l'importo: ");
-      decimal importo = decimal.Parse(Console.ReadLine()!);
+    //   switch (scelta)
+    //   {
+    //     case 1:
+    //       transazione.tipoTransazione = Transazione.TipoTransazione.Acquisto;
+    //       break;
+    //     case 2:
+    //       transazione.tipoTransazione = Transazione.TipoTransazione.Rimborso;
+    //       break;
+    //     case 3:
+    //       transazione.tipoTransazione = Transazione.TipoTransazione.Trasferimento;
+    //       break;
+    //     default:
+    //       Console.WriteLine("Scelta non valida.\n");
+    //       continue;
+    //   }
 
-      transazione.Transaction(importo);
-    }
+    //   Console.Write("Inserisci l'importo: ");
+    //   decimal importo = decimal.Parse(Console.ReadLine()!);
+
+    //   transazione.Transaction(importo);
+    // }
+    #endregion
+
+    #region Es_GiorniSettimana
+
+    // var giorni = new Giorni();
+
+    // bool continua = true;
+    // int scelta;
+
+    // while (continua)
+    // {
+    //   Console.WriteLine($"--------Benvenuto!--------");
+    //   Console.WriteLine($"Scegli il giorno della settimana:");
+    //   Console.WriteLine($"1 - Lunedi'");
+    //   Console.WriteLine($"2 - Martedi'");
+    //   Console.WriteLine($"3 - Mercoledi'");
+    //   Console.WriteLine($"4 - Giovedi'");
+    //   Console.WriteLine($"5 - Venerdi'");
+    //   Console.WriteLine($"6 - Sabato'");
+    //   Console.WriteLine($"7 - Domenica'");
+    //   Console.WriteLine($"8 - Esci");
+    //   scelta = Convert.ToInt32(Console.ReadLine());
+
+    //   if (scelta == 8) break;
+
+    //   switch (scelta)
+    //   {
+    //     case 1:
+    //       giorni.giornoSettimana = Giorni.GiornoSettimana.Lunedi;
+    //       Console.WriteLine($"Il giorno della settimana corrente è Lunedì");
+
+    //       break;
+    //     case 2:
+    //       giorni.giornoSettimana = Giorni.GiornoSettimana.Martedi;
+    //       Console.WriteLine($"Il giorno della settimana corrente è Martedi");
+    //       break;
+    //     case 3:
+    //       giorni.giornoSettimana = Giorni.GiornoSettimana.Mercoledi;
+    //       Console.WriteLine($"Il giorno della settimana corrente è Mercoledi");
+    //       break;
+    //     case 4:
+    //       giorni.giornoSettimana = Giorni.GiornoSettimana.Giovedi;
+    //       Console.WriteLine($"Il giorno della settimana corrente è Giovedi");
+    //       break;
+    //     case 5:
+    //       giorni.giornoSettimana = Giorni.GiornoSettimana.Venerdi;
+    //       Console.WriteLine($"Il giorno della settimana corrente è Venerdi");
+    //       break;
+    //     case 6:
+    //       giorni.giornoSettimana = Giorni.GiornoSettimana.Sabato;
+    //       Console.WriteLine($"Il giorno della settimana corrente è Sabato");
+    //       break;
+    //     case 7:
+    //       giorni.giornoSettimana = Giorni.GiornoSettimana.Domenica;
+    //       Console.WriteLine($"Il giorno della settimana corrente è Domenica");
+    //       break;
+    //     default:
+    //       Console.WriteLine("Scelta non valida.\n");
+    //       break;
+    //   }
+    // }
+
+    #endregion
+
+    #region
+
+    Console.WriteLine("Seleziona il tipo di notifica (Email, Sms, Push):");
+        string? input = Console.ReadLine();
+
+        if (!Enum.TryParse(input, ignoreCase: true, out TipoNotifica tipoNotifica))
+        {
+            Console.WriteLine("Tipo di notifica non valido.");
+            return;
+        }
+
+        // Factory
+        INotifierDIEnum notifier = NotifierFactory.CreaNotifier(tipoNotifica);
+        var service = new MessaggioService(notifier);
+        service.Invia(notifier, "ciao!");
+    
     #endregion
   }
 }
