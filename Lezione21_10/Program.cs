@@ -5,6 +5,10 @@ using Lezione21_10.Mattina.Es_DI_e_Factory;
 using Lezione21_10.Mattina.Es_Print;
 using Lezione21_10.Mattina.Es_StorageService;
 using Lezione21_10.Mattina.Esempio_DatabaseService;
+using Lezione21_10.Pomeriggio.Es_DataExporter;
+using Lezione21_10.Pomeriggio.Es_SMSNotifier;
+using Lezione21_10.Pomeriggio.Es_TipoTransazione;
+using Lezione21_10.Pomeriggio.Esempio_MethodInjection;
 
 class Program
 {
@@ -47,26 +51,106 @@ class Program
 
     #region Es_DI_e_Factory
 
+    // bool continua = true;
+    // int scelta;
+
+    // while (continua)
+    // {
+    //   Console.WriteLine($"--------Benvenuto!--------");
+    //   Console.WriteLine($"1 - Crea libro fisico");
+    //   Console.WriteLine($"2 - Crea libro digitale");
+    //   Console.WriteLine($"3 - Inserisci quantità");
+
+    //   Console.WriteLine($"4 - Esci");
+    //   scelta = Convert.ToInt32(Console.ReadLine());
+
+    //   switch (scelta)
+    //   {
+    //     case 1:
+
+    //       break;
+    //     case 2:
+    //       break;
+    //     case 3:
+    //       break;
+    //     case 4:
+    //       continua = false;
+    //       break;
+    //   }
+    // }
+    #endregion
+
+    #region Esempio_MethodInjection
+    // INotifier notifier = new EmailNotifier();
+    // var service = new NotificationService();
+    // service.SendNotification("Luca", notifier);
+    #endregion
+
+    #region Es_SMSNotifier
+    // INotifierSMS notifierSMS= new SMSNotifier();
+    // var service = new AlertService();
+    // service.SendAlert("Nuovo messaggio da...", notifierSMS);
+    #endregion
+
+    #region Es_DataExporter
+    // var exporter = new DataExporter();
+    // var data = new Data();
+
+    // Console.WriteLine($"Inserire il nome del file da esportare: ");
+    // string? file = Console.ReadLine();
+    // Console.WriteLine($"Che tipo di file era?:\nJSON\nXML");
+    // string? tipo = Console.ReadLine();
+
+    // switch (tipo.ToLower())
+    // {
+    //   case "JSON":
+    //     exporter.Export(data, new JsonExport());
+    //     Console.WriteLine($"{file} esportato ");
+
+    //     break;
+    //   case "XML":
+    //     exporter.Export(data, new XmlExport());
+    //     break;
+    // }
+    #endregion
+
+    #region Esempio_Enum
+    var transazione = new Transazione();
+
     bool continua = true;
     int scelta;
 
     while (continua)
     {
       Console.WriteLine($"--------Benvenuto!--------");
-      Console.WriteLine($"1 - Crea libro fisico");
-      Console.WriteLine($"2 - Crea libro digitale");
-      Console.WriteLine($"3 - Inserisci quantità");
-      
-      Console.WriteLine($"3 - Esci");
+      Console.WriteLine($"Scegli il tipo di transazione da effettuare:");
+      Console.WriteLine($"1 - Acquisto");
+      Console.WriteLine($"2 - Rimborso");
+      Console.WriteLine($"3 - Trasferimento");
+      Console.WriteLine($"4 - Esci");
       scelta = Convert.ToInt32(Console.ReadLine());
 
       switch (scelta)
       {
         case 1:
-
+          transazione.tipoTransazione = Transazione.TipoTransazione.Acquisto;
+          break;
+        case 2:
+          transazione.tipoTransazione = Transazione.TipoTransazione.Rimborso;
+          break;
+        case 3:
+          transazione.tipoTransazione = Transazione.TipoTransazione.Trasferimento;
+          break;
+        case 4:
+          continua = false;
+          break;
       }
+
+      Console.Write("Inserisci l'importo: ");
+      decimal importo = decimal.Parse(Console.ReadLine()!);
+
+      transazione.Transaction(importo);
     }
     #endregion
-
   }
 }
