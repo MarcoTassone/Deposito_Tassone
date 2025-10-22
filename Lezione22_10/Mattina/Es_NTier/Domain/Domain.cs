@@ -17,6 +17,13 @@ namespace Domain
     public string Name { get; set; }
     public Money Price { get; set; }
 
+    public Product(int id, string name, Money price)
+    {
+      Id = id;
+      Name = name;
+      Price = new Money(price.Amount);
+    }
+
     public override string ToString()
     {
       return $"[{Id}] {Name} - {Price}";
@@ -27,12 +34,15 @@ namespace Domain
   {
     public int Id { get; set; }
     public string Name { get; set; }
-    public string Email { get; set; }
 
+    public Customer(string name)
+    {
+      Name = name;
+    }
 
     public override string ToString()
     {
-      return $"[{Id}] {Name} - {Email}";
+      return $"[{Id}] {Name}";
     }
   }
   public class OrderItem(Product product, int Quantity)
@@ -48,6 +58,11 @@ namespace Domain
     public OrderStatus Status { get; set; } = OrderStatus.New;
     private readonly List<OrderItem> _items = new();
     public IReadOnlyList<OrderItem> Items => _items;
+
+    public Order(Customer customerId)
+    {
+      CustomerId = customerId;
+    }
 
     public void AddItem(OrderItem item)
     {
@@ -112,7 +127,7 @@ namespace Domain
 
     private static readonly Lazy<ConfigurationProvider> _lazy = new(() => new ConfigurationProvider(0.22m, "EUR"));
     
-    public static ConfigurationProvider istance => _lazy.Value;
+    public static ConfigurationProvider Istance => _lazy.Value;
   }
   #endregion
 
