@@ -13,10 +13,10 @@ class Program
   {
     // new ConsoleUI(new ProdottoService(new ProdottoRepositoryMem())).Run();
 
-    var config = ConfigurationProvider.Istance;
+    IConfigurationProvider config = ConfigurationProvider.Istance;
 
-    var prodotto = new List<Product>();
-    var order = new List<Order>();
+    IProductRepository prodotto = new ProductRepository();
+    IOrderRepository order = new OrderRepository();
 
     bool continua = true;
     int scelta;
@@ -28,33 +28,32 @@ class Program
       Console.WriteLine($"2. Visualizza tutti i prodotti.");
       Console.WriteLine($"3. Emetti verso tutti.");
       Console.WriteLine($"4. Esci.");
-      scelta = int.Parse(Console.ReadLine());
+      scelta = Convert.ToInt32(Console.ReadLine());
 
-      switch (scelta)
-      {
-        case 1:
-          Console.WriteLine($"Inserisci il nome del prodotto: ");
-          string name = Console.ReadLine();
-          Console.WriteLine($"Inserisci il prezzo del prodotto: ");
-          decimal price = decimal.Parse(Console.ReadLine());
-          prodotto.Add(new Product(id++, name, new Money(price, config.Currency)));
-          break;
-        case 2:
-          foreach (var p in prodotto)
-          {
-            Console.WriteLine(p);
-          }
-          break;
-        case 3:
-          foreach (var o in order)
-          {
-            Console.WriteLine(o);
-          }
-          break;
-        case 4:
-          continua = false;
-          break;
+      // switch (scelta)
+      // {
+      //   case 1:
+      //     Console.WriteLine($"Inserisci il nome del prodotto: ");
+      //     string name = Console.ReadLine();
+      //     Console.WriteLine($"Inserisci il prezzo del prodotto: ");
+      //     decimal price = decimal.Parse(Console.ReadLine());
+      //     prodotto.Add(new Product(id++, name, new Money(price, config.Currency)));
+      //     break;
+      //   case 2:
+      //     foreach (var p in prodotto)
+      //     {
+      //       Console.WriteLine(p);
+      //     }
+      //     break;
+      //   case 3:
+      //     foreach (var o in order)
+      //     {
+      //       Console.WriteLine(o);
+      //     }
+      //     break;
+      //   case 4:
+      //     continua = false;
+      //     break;
       }
     }
   }
-}
