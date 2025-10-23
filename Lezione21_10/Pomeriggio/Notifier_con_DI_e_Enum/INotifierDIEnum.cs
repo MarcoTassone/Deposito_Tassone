@@ -58,9 +58,9 @@ namespace Lezione21_10.Pomeriggio.Notifier_con_DI_e_Enum
                 case TipoNotifica.Email:
                     return new EmailNotifierDIEnum();
                 case TipoNotifica.Sms:
-                    return new EmailNotifierDIEnum();
+                    return new SmsNotifierDIEnum();
                 case TipoNotifica.Push:
-                    return new EmailNotifierDIEnum();
+                    return new PushNotifierDIEnum();
                 default:
                     break;
                 }
