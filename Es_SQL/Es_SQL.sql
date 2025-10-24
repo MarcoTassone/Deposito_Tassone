@@ -12,7 +12,7 @@ ORDER BY Population DESC;
 -- esercizio 3
 
 SELECT Continent,
-	COUNT(Name) AS NumeroPaesi,
+	  COUNT(Name) AS NumeroPaesi,
     SUM(Population) AS PopolazioneTotale
 FROM world.country
 GROUP BY Continent
