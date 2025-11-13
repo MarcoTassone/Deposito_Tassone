@@ -1,3 +1,3 @@
 # Deposito_Tassone
 
-Qui sono presenti le esercitazioni con c# e sql
+Qui sono presenti le esercitazioni con C# e SQL
